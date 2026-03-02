@@ -1,0 +1,10 @@
+@import 'tailwindcss' prefix(ui);
+
+
+@theme {
+  /* Your theme variables go here */
+}
+
+.dark {
+  /* Dark mode overrides */
+}

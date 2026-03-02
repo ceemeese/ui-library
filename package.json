@@ -1,42 +1,70 @@
 {
-  "name": "ui-library",
+  "name": "ui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/ui.es.js",
+      "require": "./dist/ui.cjs.js"
+    },
+    "./style.css": {
+      "import": "./dist/styles.css",
+      "require": "./dist/styles.css",
+      "default": "./dist/styles.css"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vue-tsc -b && vite build && npm run build:css",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "concurrently \"npm run storybook:css\" \"storybook dev -p 6006\"",
+    "storybook:css": "npx @tailwindcss/cli -w -i ./src/tailwind-entry.css -o ./src/assets/main.css",
+    "build-storybook": "concurrently \"npm run build-storybook:css\" \"storybook build\"",
+    "build:css": "npx @tailwindcss/cli -m -i ./src/tailwind-entry.css -o ./dist/styles.css",
+    "build-storybook:css": "npx @tailwindcss/cli -m -i ./src/tailwind-entry.css -o ./src/assets/main.css",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@primevue/themes": "^4.5.4",
-    "@tailwindcss/vite": "^4.1.18",
-    "primeicons": "^7.0.0",
+    "zod": "^4.3.6"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.24",
     "primevue": "^4.5.4",
-    "tailwindcss": "^4.1.18",
-    "tailwindcss-primeui": "^0.6.1",
-    "vue": "^3.5.24"
+    "@primeuix/themes": "^2.0.2",
+    "@primevue/core": "^4.5.4",
+    "@primevue/forms": "^4.5.4",
+    "primeicons": "^7.0.0"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^5.0.0",
-    "@primeuix/themes": "^2.0.2",
-    "@storybook/addon-a11y": "^10.1.11",
-    "@storybook/addon-docs": "^10.1.11",
-    "@storybook/addon-onboarding": "^10.1.11",
-    "@storybook/addon-vitest": "^10.1.11",
-    "@storybook/vue3-vite": "^10.1.11",
+    "@chromatic-com/storybook": "^5.0.1",
+    "@storybook/addon-a11y": "^10.2.13",
+    "@storybook/addon-docs": "^10.2.13",
+    "@storybook/addon-onboarding": "^10.2.13",
+    "@storybook/addon-vitest": "^10.2.13",
+    "@storybook/vue3-vite": "^10.2.13",
+    "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^24.10.1",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitest/browser-playwright": "^4.0.17",
     "@vitest/coverage-v8": "^4.0.17",
     "@vue/tsconfig": "^0.8.1",
+    "concurrently": "^9.2.1",
     "playwright": "^1.57.0",
-    "storybook": "^10.1.11",
+    "primeicons": "^7.0.0",
+    "storybook": "^10.2.13",
+    "tailwindcss": "^4.1.18",
+    "tailwindcss-primeui": "^0.6.1",
     "typescript": "~5.9.3",
     "vite": "^7.2.4",
+    "vite-plugin-dts": "^4.5.4",
     "vitest": "^4.0.17",
+    "vue": "^3.5.24",
     "vue-tsc": "^3.1.4"
   }
 }

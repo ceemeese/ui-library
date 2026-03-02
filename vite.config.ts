@@ -2,6 +2,8 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import tailwindcss from '@tailwindcss/vite';
+import dts from 'vite-plugin-dts'
+import pkg from './package.json' with { type: 'json' };
 
 // https://vite.dev/config/
 import path from 'node:path';
@@ -12,7 +14,38 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [vue(), tailwindcss()],
+  plugins: [vue(),
+      tailwindcss(),
+      dts({ 
+      tsconfigPath: path.resolve(__dirname, 'tsconfig.app.json'),
+      insertTypesEntry: true,
+      rollupTypes: false,
+      exclude: ['**/*.stories.ts', '**/*.test.ts']
+    })],
+
+  build: {
+    lib: {
+      entry: './src/index.ts',
+      name: 'ui',
+      fileName: (format) => `ui.${format}.js`,
+      formats: ['es', 'cjs', 'umd'],
+    },
+    cssCodeSplit: false,
+    rollupOptions: {
+      external: [
+        ...Object.keys(pkg.peerDependencies), 
+        /^primevue\/.*/,
+        /^@primevue\/.*/,
+        /^@primeuix\/.*/,
+        /^primeicons\/.*/,],
+      output: {
+        exports: 'named',
+        globals: {
+        vue: 'Vue',
+        primevue: 'PrimeVue'}}
+    }
+  },
+
   test: {
     projects: [{
       extends: true,

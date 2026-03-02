@@ -4,6 +4,7 @@ import Aura from '@primevue/themes/aura';
 import '../src/style.css';
 import { definePreset } from '@primevue/themes';
 import type { Preview } from '@storybook/vue3-vite'
+import '../src/assets/main.css';
 
 const MyPreset = definePreset(Aura, {
     semantic: {
@@ -80,26 +81,35 @@ setup((app) => {
 
 const preview: Preview = {
   parameters: {
-    layout: 'centered',
-    controls: {
-      matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
+      layout: 'centered',
+
+      controls: {
+        matchers: {
+         color: /(background|color)$/i,
+         date: /Date$/i,
+        },
       },
-    },
-    backgrounds: {
-      default: 'light',
-      values: [
-        {
-          name: 'light',
-          value: '#f5f5f5',
-        },
-        {
-          name: 'dark',
-          value: '#1a1a1a',
-        },
-      ],
-    },
+
+      backgrounds: {
+        default: 'light',
+        values: [
+          {
+            name: 'light',
+            value: '#f5f5f5',
+          },
+          {
+            name: 'dark',
+            value: '#1a1a1a',
+          },
+        ],
+      },
+
+      a11y: {
+          // 'todo' - show a11y violations in the test UI only
+          // 'error' - fail CI on a11y violations
+          // 'off' - skip a11y checks entirely
+          test: 'todo'
+      }
   },
 };
 

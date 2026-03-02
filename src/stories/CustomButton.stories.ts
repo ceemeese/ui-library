@@ -21,7 +21,9 @@ export const Default: Story = {};
 
 // Si quieres ver cómo queda en un fondo oscuro (si tienes configurado dark mode)
 export const OnDarkBackground: Story = {
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: {
+      value: "dark"
+    }
   },
 };
