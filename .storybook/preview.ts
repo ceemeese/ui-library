@@ -16,6 +16,7 @@ const router = createRouter({
     { path: '/club', name: 'club', component: { render: () => null } },
     { path: '/contact', name: 'contact', component: { render: () => null } },
     { path: '/register', name: 'register', component: { render: () => null } },
+    { path: '/profile', name: 'profile', component: { render: () => null } },
   ],
 });
 
@@ -40,7 +41,7 @@ const MyPreset = definePreset(Aura, {
             light: {
                 surface: {
                     0: '#ffffff',
-                    50: '{slate.50}',
+                    50: '{red.50}',
                     100: '{slate.100}',
                     200: '{slate.200}',
                     300: '{slate.300}',
