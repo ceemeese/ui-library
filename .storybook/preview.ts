@@ -1,10 +1,24 @@
 import { setup } from '@storybook/vue3';
+import { createRouter, createWebHistory } from 'vue-router';
 import PrimeVue from 'primevue/config';
-import Aura from '@primevue/themes/aura';
+import Aura from '@primevue/themes/Aura';
 import '../src/style.css';
 import { definePreset } from '@primevue/themes';
 import type { Preview } from '@storybook/vue3-vite'
 import '../src/assets/main.css';
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: '/', name: 'home', component: { render: () => null } },
+    { path: '/login', name: 'login', component: { render: () => null } },
+    { path: '/users', name: 'users', component: { render: () => null } },
+    { path: '/club', name: 'club', component: { render: () => null } },
+    { path: '/contact', name: 'contact', component: { render: () => null } },
+    { path: '/register', name: 'register', component: { render: () => null } },
+  ],
+});
+
 
 const MyPreset = definePreset(Aura, {
     semantic: {
@@ -68,6 +82,7 @@ const MyPreset = definePreset(Aura, {
 });
 
 setup((app) => {
+app.use(router);
   app.use(PrimeVue, { 
     theme: {
         preset: MyPreset,
@@ -77,7 +92,10 @@ setup((app) => {
         }
     }
   });
+
 });
+
+
 
 const preview: Preview = {
   parameters: {
