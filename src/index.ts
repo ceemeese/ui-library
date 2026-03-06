@@ -5,9 +5,16 @@ import BaseInput from './components/atoms/BaseInput.vue';
 import BaseButton from './components/atoms/BaseButton.vue';
 import BasePassword from './components/atoms/BasePassword.vue';
 import LoginForm from './components/organisms/login/LoginForm.vue';
+import Header from './components/organisms/header/Header.vue';
+import HeaderM from './components/organisms/headerm/HeaderM.vue';
+import Footer from './components/organisms/footer/Footer.vue';
+import Navbar from './components/organisms/navbar/Navbar.vue';
+import type { SocialItem, NavItem, NavItemNavbar } from './types/navigation';
+
 
 //exportacion individual
-export { BaseInput, BaseButton, BasePassword, LoginForm };
+export { BaseInput, BaseButton, BasePassword, LoginForm, Header, HeaderM, Footer, Navbar };
+export type { NavItem, SocialItem, NavItemNavbar }
 
 //Plugin para regitrar todo de golpe
 const UILibrary: Plugin = {
@@ -18,6 +25,10 @@ const UILibrary: Plugin = {
     app.component('BaseButton', BaseButton);
     app.component('BasePassword', BasePassword);
     app.component('LoginForm', LoginForm);
+    app.component('Header', Header);
+    app.component('HeaderM', HeaderM);
+    app.component('Footer', Footer);
+    app.component('Navbar', Navbar);
 
     console.log('✅ UI Library: PrimeVue y componentes locales registrados.');
   }
