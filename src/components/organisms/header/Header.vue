@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import BaseButton from '../../atoms/BaseButton.vue';
 
-interface NavItem {
+export interface NavItem {
     title: string;
     to: string | Record<string, any>;
 }
@@ -15,7 +15,7 @@ defineProps({
     maxWidth: { type: String, default: 'ui:max-w-7xl' },
     sticky: { type: Boolean, default: true },
     blurAmount: { type: String, default: 'ui:backdrop-blur-md' },
-    loginLabel: { type: String, default: 'Log in' }
+    registerLabel: { type: String, default: 'Regístrate' }
 });
 
 const isScrolled = ref(false);
@@ -66,7 +66,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
                 <slot name="extra-actions"></slot>
                 <router-link :to="{ name: 'login' }" class="ui:no-underline">
                     <BaseButton
-                        :label="loginLabel" 
+                        :label="registerLabel" 
                         rounded 
                         size="small"
                         class="ui:!border-none  ui:!shadow-lg ui:!shadow-emerald-500/20 ui:!px-5 ui:transition-all ui:hover:-translate-y-0.5" 

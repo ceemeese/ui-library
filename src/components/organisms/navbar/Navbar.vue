@@ -2,7 +2,7 @@
 import type { MenuItem } from 'primevue/menuitem';
 import Menu from 'primevue/menu';
 import Avatar from 'primevue/avatar';
-import BaseButton from '../../atoms/BaseButton.vue';
+
 
 const props = defineProps({
     username: { type: String, default: 'Admin Usuario' },
@@ -90,16 +90,18 @@ const getInitial = (name: string) => name ? name.charAt(0).toUpperCase() : 'U';
 <style scoped>
 
 :deep(.p-menu) {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
 }
 
 :deep(.p-menu-list) {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
 }
 
 :deep(.p-menu-end) {
-    margin-top: auto;
+    margin-top: auto !important;
 }
 </style>

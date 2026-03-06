@@ -6,7 +6,7 @@ import BaseInput from '../../atoms/BaseInput.vue';
 import BaseButton from '../../atoms/BaseButton.vue';
 import BasePassword from '../../atoms/BasePassword.vue';
 
-interface InitialValues {
+export interface InitialValues {
     username: string,
     password: string,
 }

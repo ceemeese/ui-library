@@ -1,24 +1,25 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import BaseButton from '../../atoms/BaseButton.vue';
+import type { NavItem } from '../../../types/navigation';
 
-interface NavItem {
-    title: string;
-    to: string | Record<string, any>;
-    icon?: string;
+interface Props {
+    navigationItems: NavItem[],
+    maxWidth?: string;
+    sticky?: boolean;
+    blurAmount?: string;
+    registerLabel?: string;
+    loginLabel?: string;
 }
 
-defineProps({
-    navigationItems: {
-        type: Array as () => NavItem[],
-        default: () => []
-    },
-    maxWidth: { type: String, default: 'ui:max-w-7xl' },
-    sticky: { type: Boolean, default: true },
-    blurAmount: { type: String, default: 'ui:backdrop-blur-md' },
-    registerLabel: { type: String, default: 'Log in' },
-    loginLabel: { type: String, default: 'Log in' }
-});
+const props = withDefaults(defineProps<Props>(), {
+    navigationItems: () => [],
+    maxWidth: 'ui:max-w-7xl',
+    sticky: true,
+    blurAmount: 'ui:backdrop-blur-xl',
+    registerLabel: 'Regístrate' ,
+    loginLabel: 'Log in',
+})
 
 const isScrolled = ref(false);
 const handleScroll = () => {
@@ -32,13 +33,13 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
 <template>
     <header 
         :class="[
-            'ui:fixed ui:top-4 ui:left-1/2 ui:-translate-x-1/2 ui:z-50 ui:w-[95%] ui:transition-all ui:duration-500',
+            'ui:fixed ui:top-4 ui:left-1/2 ui:-translate-x-1/2 ui:z-50 ui:w-full ui:transition-all ui:duration-500',
             isScrolled ? 'ui:max-w-5xl' : maxWidth
         ]"
     >
         <div 
             :class="[
-                'ui:flex ui:items-center ui:justify-between ui:px-6 ui:py-3 ui:rounded-2xl ui:border ui:border-gray-200/50 ui:shadow-lg ui:bg-white/80 ui:backdrop-blur-xl',
+                'ui:flex ui:items-center ui:justify-between ui:px-6 ui:py-3 ui:rounded-2xl ui:border ui:border-gray-200/50 ui:shadow-lg ui:bg-white/80', props.blurAmount
             ]"
         >
             <router-link :to="{ name: 'home' }" class="ui:flex ui:items-center ui:gap-2 ui:no-underline">
@@ -52,7 +53,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
 
             <nav class="ui:hidden ui:lg:flex ui:items-center ui:gap-2">
                 <router-link
-                    v-for="item in navigationItems" 
+                    v-for="item in props.navigationItems" 
                     :key="item.title"
                     :to="item.to"
                     class="ui:flex ui:items-center ui:gap-2 ui:px-4 ui:py-2 ui:text-sm ui:font-medium ui:text-gray-500 ui:rounded-full ui:border ui:border-transparent ui:transition-all ui:hover:bg-gray-100 ui:hover:text-black ui:no-underline"
@@ -66,7 +67,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
             <div class="ui:flex ui:items-center ui:gap-3">
                 <router-link :to="{ name: 'register' }"> 
                     <BaseButton
-                        :label="loginLabel" 
+                        :label="props.registerLabel" 
                         size="small"
                         rounded
                     />
