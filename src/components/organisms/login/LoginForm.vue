@@ -5,24 +5,20 @@ import { reactive } from 'vue';
 import BaseInput from '../../atoms/BaseInput.vue';
 import BaseButton from '../../atoms/BaseButton.vue';
 import BasePassword from '../../atoms/BasePassword.vue';
+import type { LoginValues } from '../../../types/forms';
 
-export interface InitialValues {
-    username: string,
-    password: string,
-}
-
-const initialValues : InitialValues = reactive({
+const formValues : LoginValues = reactive({
     username: '',
     password: '',
 })
 
 const emit = defineEmits<{
-  (e: 'submit', values: InitialValues): void
+  (e: 'submit', values: LoginValues): void
 }>();
 
 const onFormSubmit = (e: any) => {
   if (e.valid) {
-    emit('submit', e.values);
+    emit('submit', e.values as LoginValues);
   }
 };
 
@@ -32,26 +28,26 @@ const onFormSubmit = (e: any) => {
 
 
 <template>
-  <div class="ui:login-card ui:max-w-md ui:mx-auto ui:p-8 ui:bg-white ui:rounded-2xl ui:shadow-xl ui:border ui:border-gray-100 ui:shrink-0">
+  <div class="ui:max-w-md ui:mx-auto ui:p-8 ui:bg-white ui:rounded-2xl ui:shadow-xl ui:border ui:border-gray-100 ui:shrink-0">
     <div class="ui:text-center ui:mb-8">
-      <h2 class="ui:text-3xl ui:font-extrabold ui:text-gray-900">Bienvenido</h2>
+      <h2 class="ui:text-2xl ui:font-extrabold ui:text-gray-900">Bienvenido</h2>
       <p class="ui:text-gray-500 ui:mt-2">Introduce tus credenciales para acceder</p>
     </div>
 
     <Form 
-      :initialValues="initialValues"
+      :initialValues="formValues"
       @submit="onFormSubmit" 
       class="ui:flex ui:flex-col ui:gap-4"
     >
       <BaseInput
-        v-model="initialValues.username"
+        v-model="formValues.username"
         name="username" 
         label="Usuario" 
         icon="pi-user"
       />
 
       <BasePassword 
-        v-model="initialValues.password"
+        v-model="formValues.password"
         name="password" 
         label="Contraseña"
       />
