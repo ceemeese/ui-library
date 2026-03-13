@@ -20,7 +20,7 @@ const getInitial = (name: string) => name ? name.charAt(0).toUpperCase() : 'U';
 <template>
     <nav class="ui:fixed ui:left-6 ui:top-6 ui:bottom-6 ui:w-72 ui:z-50 ui:flex ui:flex-col">
         <Menu 
-            :model="navigationItems" 
+            :model="props.navigationItems" 
             class="ui:h-full ui:w-full ui:!bg-white/80 ui:!backdrop-blur-xl ui:!border ui:!border-gray-200/50 ui:!shadow-2xl ui:!rounded-[2.5rem] ui:flex ui:flex-col ui:!p-4"
         >
             <template #start>
@@ -63,15 +63,15 @@ const getInitial = (name: string) => name ? name.charAt(0).toUpperCase() : 'U';
                             title="Ver mi perfil"
                             class="ui:no-underline ui:transition-transform ui:hover:scale-110 ui:duration-300 px-1"> 
                             <Avatar 
-                                :label="getInitial(username)" 
+                                :label="getInitial(props.username)" 
                                 class="ui:!bg-black ui:!text-white ui:shadow-md"
                                 shape="circle" 
                             />
                         </router-link>
 
                         <div class="ui:flex ui:flex-col ui:overflow-hidden ui:flex-1">
-                            <span class="ui:font-bold ui:text-sm ui:text-black ui:truncate">{{ username }}</span>
-                            <span class="ui:text-[10px] ui:font-bold ui:text-gray-400 ui:uppercase">{{ userRole }}</span>
+                            <span class="ui:font-bold ui:text-sm ui:text-black ui:truncate">{{ props.username }}</span>
+                            <span class="ui:text-[10px] ui:font-bold ui:text-gray-400 ui:uppercase">{{ props.userRole }}</span>
                         </div>
 
                         <button 

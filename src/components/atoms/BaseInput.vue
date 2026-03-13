@@ -61,11 +61,9 @@ const onInput = (event: Event) => {
             <label :for="label">{{ label }}</label>
         </IftaLabel>
         
-      <div class="ui:mt-1 ui:w-full">
         <Message v-if="error" severity="error" size="small" class="animate-fade-in" variant="simple">
           {{ error }}
         </Message>
-      </div>
 
   </div>
 </template>
