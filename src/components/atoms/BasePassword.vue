@@ -58,5 +58,6 @@ const onInputPasssword = (event: Event) => {
         <Message v-if="error" severity="error" size="small" variant="simple">
         {{ error }}
         </Message>
+
   </div>
 </template>

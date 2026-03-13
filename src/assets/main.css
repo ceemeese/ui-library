@@ -22,7 +22,9 @@
     --ui-color-black: #000;
     --ui-color-white: #fff;
     --ui-spacing: 0.25rem;
+    --ui-container-sm: 24rem;
     --ui-container-md: 28rem;
+    --ui-container-xl: 36rem;
     --ui-container-2xl: 42rem;
     --ui-container-5xl: 64rem;
     --ui-container-7xl: 80rem;
@@ -237,11 +239,11 @@
   .ui\:my-5 {
     margin-block: calc(var(--ui-spacing) * 5);
   }
-  .ui\:mt-1 {
-    margin-top: calc(var(--ui-spacing) * 1);
-  }
   .ui\:mt-2 {
     margin-top: calc(var(--ui-spacing) * 2);
+  }
+  .ui\:mt-3 {
+    margin-top: calc(var(--ui-spacing) * 3);
   }
   .ui\:mt-4 {
     margin-top: calc(var(--ui-spacing) * 4);
@@ -801,6 +803,21 @@
       --tw-scale-y: 95%;
       --tw-scale-z: 95%;
       scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+  .ui\:md\:max-w-2xl {
+    @media (width >= 48rem) {
+      max-width: var(--ui-container-2xl);
+    }
+  }
+  .ui\:md\:max-w-sm {
+    @media (width >= 48rem) {
+      max-width: var(--ui-container-sm);
+    }
+  }
+  .ui\:md\:max-w-xl {
+    @media (width >= 48rem) {
+      max-width: var(--ui-container-xl);
     }
   }
   .ui\:md\:grid-cols-3 {
