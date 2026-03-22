@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
         
         <div 
             :class="[
-                'ui:mx-auto ui:bg-white/80 ui:border ui:border-gray-200/50 ui:shadow-lg ui:rounded-2xl ui:px-8 ui:py-6 ', props.maxWidth, props.blurAmount
+                'ui:mx-auto ui:bg-white/70 ui:border ui:border-gray-200/50 ui:shadow-lg ui:rounded-2xl ui:px-8 ui:py-6 ', props.maxWidth, props.blurAmount
             ]"
         >
             <div class="ui:grid ui:grid-cols-1 ui:md:grid-cols-3 ui:gap-6 ui:items-center">

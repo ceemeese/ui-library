@@ -33,13 +33,13 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
 <template>
     <header 
         :class="[
-            'ui:fixed ui:top-4 ui:left-1/2 ui:-translate-x-1/2 ui:z-50 ui:w-full ui:transition-all ui:duration-500',
+            'ui:fixed ui:top-4 ui:bottom-4 ui:left-1/2 ui:-translate-x-1/2 ui:z-50 ui:w-full ui:transition-all ui:duration-500',
             isScrolled ? 'ui:max-w-5xl' : maxWidth
         ]"
     >
         <div 
             :class="[
-                'ui:flex ui:items-center ui:justify-between ui:px-6 ui:py-3 ui:rounded-2xl ui:border ui:border-gray-200/50 ui:shadow-lg ui:bg-white/80', props.blurAmount
+                'ui:flex ui:items-center ui:justify-between ui:px-6 ui:py-3 ui:rounded-2xl ui:border ui:border-gray-200/50 ui:shadow-lg ui:bg-white/70', props.blurAmount
             ]"
         >
             <router-link :to="{ name: 'home' }" class="ui:flex ui:items-center ui:gap-2 ui:no-underline">
