@@ -8,9 +8,10 @@ import { Form, type FormSubmitEvent } from '@primevue/forms';
 
 
 const visible = ref<boolean>(false);
+const localData = ref<Record<string, any>>({});
 
 const open = (data: any) => {
-    localData.value = {...data}
+    localData.value = data ? {...data} : {}
     visible.value = true;
 }
 
@@ -27,8 +28,6 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
     header: 'Dialog'
 });
-
-const localData = ref(props.modelValue ? {...props.modelValue} : {});
 
 
 const emit = defineEmits(['update:modelValue', 'save']);

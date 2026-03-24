@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
     height: 'ui:h-full',
     padding: 'ui:p-8',
     blurAmount: 'ui:backdrop-blur-xl',
-    borderRounded: 'ui:rounded-[2.5rem]'
+    borderRounded: 'ui:rounded-2xl'
 });
 
 </script>

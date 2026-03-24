@@ -13,14 +13,18 @@ import Navbar from './components/organisms/navbar/Navbar.vue';
 import BaseDataTable from './components/organisms/datatable/BaseDataTable.vue'
 import BaseCard from './components/atoms/BaseCard.vue';
 import BaseDialog from './components/organisms/dialog/BaseDialog.vue'
+import UserCardProfile from './components/organisms/userCardProfile/UserCardProfile.vue';
+import BaseInfoField from './components/atoms/BaseInfoField.vue';
 import type { SocialItem, NavItem, NavItemNavbar } from './types/navigation';
 import type { LoginValues, RegisterValues, BaseInputProps } from './types/forms';
 import type { ColumnConfig, ActionColumn } from './types/datatable'
+import type { InfoFieldProps } from './components/atoms/BaseInfoField.vue';
+
 
 
 //exportacion individual
-export { BaseInput, BaseButton, BasePassword, LoginForm, Header, HeaderM, Footer, Navbar, RegisterForm, BaseDataTable, BaseCard, BaseDialog};
-export type { NavItem, SocialItem, NavItemNavbar, LoginValues, RegisterValues, ColumnConfig, ActionColumn, BaseInputProps}
+export { BaseInput, BaseButton, BasePassword, LoginForm, Header, HeaderM, Footer, Navbar, RegisterForm, BaseDataTable, BaseCard, BaseDialog, UserCardProfile, BaseInfoField};
+export type { NavItem, SocialItem, NavItemNavbar, LoginValues, RegisterValues, ColumnConfig, ActionColumn, BaseInputProps, InfoFieldProps}
 
 //Plugin para regitrar todo de golpe
 const UILibrary: Plugin = {
@@ -39,6 +43,8 @@ const UILibrary: Plugin = {
     app.component('BaseDataTable', BaseDataTable);
     app.component('BaseCard', BaseCard);
     app.component('BaseDialog', BaseDialog);
+    app.component('UserCardProfile', UserCardProfile);
+    app.component('BaseInfoField', BaseInfoField);
 
     console.log('UI Library: PrimeVue y componentes locales registrados.');
   }

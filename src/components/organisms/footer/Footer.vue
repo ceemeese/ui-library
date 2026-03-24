@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-    <footer class="ui:w-full ui:pb-6 ui:pt-12 ui:px-4">
+    <footer class="ui:w-full ui:pb-6 ui:pt-12 ui:px-6">
         
         <div 
             :class="[
