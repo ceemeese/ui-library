@@ -1,19 +1,6 @@
 <script setup lang="ts">
 import Button from 'primevue/button';
-
-interface BaseButtonProps {
-  label?: string;
-  disabled?: boolean;
-  raised?: boolean;
-  rounded?: boolean;
-  variant?: 'text' | 'outlined' | 'link';
-  badge?: string;
-  icon?: string;
-  size?: 'small' | 'large';
-  loading?: boolean;
-  ariaLabel?: string;
-  type?: 'button' | 'submit' | 'reset';
-}
+import type { BaseButtonProps } from '../../types/forms';
 
 withDefaults(defineProps<BaseButtonProps>(), {
     disabled: false,

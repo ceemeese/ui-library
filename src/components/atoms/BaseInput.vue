@@ -4,19 +4,7 @@ import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
 import IftaLabel from 'primevue/iftalabel';
 import Message from 'primevue/message';
-
-interface BaseInputProps {
-  modelValue?: string | number;
-  label?: string;
-  type?: string;
-  placeholder?: string;
-  error?: string;
-  icon?: string;
-  size?: 'small' | 'medium' | 'large';
-  primary?: boolean;
-  disabled?: boolean;
-}
-
+import type { BaseInputProps } from '../../types/forms';
 
 withDefaults(defineProps<BaseInputProps>(), {
   type: 'text',

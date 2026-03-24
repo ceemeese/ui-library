@@ -111,7 +111,7 @@ const onFormSubmit = (e: FormSubmitEvent) => {
 
             <p class="ui:text-center ui:text-sm ui:text-gray-500 ui:mt-2">
                 ¿Tienes cuenta? 
-                <RouterLink class="ui:font-semibold ui:text-blue-600 ui:hover:underline" to="/login">
+                <RouterLink class="ui:font-semibold ui:text-blue-600 ui:hover:underline" :to="{name: 'login'}">
                     Inicia sesión
                 </RouterLink>
             </p>

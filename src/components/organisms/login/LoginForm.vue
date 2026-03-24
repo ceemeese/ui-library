@@ -66,7 +66,7 @@ const onFormSubmit = (e: any) => {
       
       <p class="ui:text-center ui:text-sm ui:text-gray-500 ui:mt-6">
         ¿No tienes cuenta? 
-        <RouterLink class="ui:font-semibold ui:text-blue-600 ui:hover:underline" to="/register">Regístrate gratis</RouterLink>
+        <RouterLink class="ui:font-semibold ui:text-blue-600 ui:hover:underline" :to="{ name: 'register' }">Regístrate gratis</RouterLink>
       </p>
     </Form>
   </div>
