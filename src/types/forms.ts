@@ -28,14 +28,17 @@ export interface BaseButtonProps {
 }
 
 export interface BaseInputProps {
-  modelValue?: string | number;
+  modelValue?: string | number | boolean | Date;
   field?: string;
   label?: string;
-  type?: string;
+  type?: 'text' | 'password' | 'email' | 'number' | 'boolean' | 'select'| 'time';
   placeholder?: string;
   error?: string;
   icon?: string;
   size?: 'small' | 'medium' | 'large';
   primary?: boolean;
   disabled?: boolean;
+  options?: any[];
+  optionLabel?: string;
+  optionValue?: string;
 }

@@ -8,6 +8,7 @@ import BaseCard from '../../atoms/BaseCard.vue';
 const props = defineProps({
     username: { type: String, default: 'Admin Usuario' },
     userRole: { type: String, default: 'Admin' }, 
+    showUserCard: { type: Boolean, default: false },
     navigationItems: {
         type: Array as () => MenuItem[],
         default: () => []
@@ -20,7 +21,10 @@ const getInitial = (name: string) => name ? name.charAt(0).toUpperCase() : 'U';
 
 <template>
     <nav class="ui:w-72 ui:h-full ui:z-50 ui:flex ui:flex-col">
-        <BaseCard padding="ui:p-4">  
+        <BaseCard 
+            padding="ui:p-4"
+            height="ui:h-full"
+        >  
             <Menu 
                 :model="props.navigationItems" 
                 class="ui:!w-full ui:!h-full ui:!bg-transparent ui:!border-none"
@@ -58,7 +62,7 @@ const getInitial = (name: string) => name ? name.charAt(0).toUpperCase() : 'U';
 
                 <template #end>
                     
-                    <div class="ui:w-full ui:pt-4">
+                    <div v-if="props.showUserCard" class="ui:w-full ui:pt-4">
                         <div class="ui:flex ui:items-center ui:gap-3 ui:p-1 ui:bg-gray-100/50 ui:rounded-[1.5rem] ui:border ui:border-gray-200/50">
                             <router-link 
                                 :to="{ name: 'profile' }" 

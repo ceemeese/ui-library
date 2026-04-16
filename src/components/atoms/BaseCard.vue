@@ -10,7 +10,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
     width: 'ui:w-full',
-    height: 'ui:h-full',
+    height: 'ui:h-auto',
     padding: 'ui:p-8',
     blurAmount: 'ui:backdrop-blur-xl',
     borderRounded: 'ui:rounded-2xl'

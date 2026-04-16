@@ -6,7 +6,11 @@ const meta: Meta<typeof BaseInput> = {
   component: BaseInput,
   tags: ['autodocs'],
   argTypes: {
-    type: { control: 'select', options: ['text', 'password', 'email', 'number'] },
+    type: {
+      control: 'select', 
+      options: ['text', 'password', 'email', 'number', 'boolean', 'select'] 
+    },
+    options: { control: 'object'}
   },
 } satisfies Meta<typeof BaseInput>;
 
@@ -36,5 +40,38 @@ export const Invalid: Story = {
     label: 'Email',
     modelValue: 'correo-no-valido',
     error: 'El formato del correo es incorrecto',
+  },
+};
+
+export const BooleanType : Story = {
+  args: {
+    label: 'Es socio?',
+    type: 'boolean',
+    modelValue: true,
+  }
+}
+
+export const SelectType: Story = {
+  args: {
+    label: 'Rol del usuario',
+    type: 'select',
+    modelValue: 1,
+    options: [
+      { name: 'Administrador', id: 1 },
+      { name: 'Entrenador', id: 2 },
+      { name: 'Jugador', id: 3 },
+    ],
+    optionLabel: 'name',
+    optionValue: 'id',
+    placeholder: 'Selecciona un rol'
+  },
+};
+
+
+export const TimeType: Story = {
+  args: {
+    label: 'Apertura',
+    type: 'time',
+    modelValue: new Date(),
   },
 };

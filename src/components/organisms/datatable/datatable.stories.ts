@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import Datatable from './BaseDataTable.vue';
 import BaseCard from '../../atoms/BaseCard.vue';
+import BaseButton from '../../atoms/BaseButton.vue';
 
 const meta: Meta<typeof Datatable> = {
   title: 'Organisms/Datatable',
@@ -73,19 +74,24 @@ export const Default: Story = {
     ],
   },
   render: (args) => ({
-    components: { Datatable, BaseCard },
+    components: { Datatable, BaseCard, BaseButton },
     setup() {
       return { args };
     },
     template: `
       <div class="ui:min-h-screen ui:p-8 ui:bg-gray-50">
         <BaseCard>
-            <div class="ui:mb-4">
-              <h2 class="ui:text-xl ui:font-bold">Listado de Usuarios</h2>
-              <p class="ui:text-sm ui:text-gray-500">Vista previa desde Storybook</p>
-            </div>
+          <div class="ui:mb-4">
+            <h2 class="ui:text-xl ui:font-bold">Listado de Usuarios</h2>
+            <p class="ui:text-sm ui:text-gray-500">Vista previa desde Storybook</p>
+          </div>
             
-            <Datatable v-bind="args" />
+          <Datatable v-bind="args">
+            <template #table-actions>
+              <BaseButton label="Exportar" icon="pi pi-download" class="ui:bg-gray-200 !ui:text-gray-700" size="small" />
+              <BaseButton label="Nuevo Usuario" icon="pi pi-plus" size="small" />
+            </template>
+          </Datatable>
         </BaseCard>
       </div>
     `,

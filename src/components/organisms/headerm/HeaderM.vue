@@ -79,6 +79,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
                             :label="props.registerLabel" 
                             size="small"
                             rounded
+                            class="ui:!border-none"
                         />
                     </router-link>
 
@@ -87,7 +88,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
                             icon="pi pi-sign-in"
                             size="small"
                             rounded
-                            class="ui:!bg-black"
+                            class="ui:!bg-black ui:!border-none"
                         />
                     </router-link>
                 </div>
