@@ -17,6 +17,8 @@ import UserCardProfile from './components/organisms/userCardProfile/UserCardProf
 import BaseInfoField from './components/atoms/BaseInfoField.vue';
 import NavUserCard from './components/organisms/navUserCard/NavUserCard.vue';
 import ScheduleManager from './components/organisms/scheduleManager/ScheduleManager.vue';
+import EventCalendar from './components/organisms/eventCalendar/EventCalendar.vue';
+import BaseDatePicker from './components/atoms/BaseDatePicker.vue';
 import type { SocialItem, NavItem, NavItemNavbar } from './types/navigation';
 import type { LoginValues, RegisterValues, BaseInputProps } from './types/forms';
 import type { ColumnConfig, ActionColumn } from './types/datatable'
@@ -26,7 +28,7 @@ import type { ScheduleProps } from './components/organisms/scheduleManager/Sched
 
 
 //exportacion individual
-export { BaseInput, BaseButton, BasePassword, LoginForm, Header, HeaderM, Footer, Navbar, RegisterForm, BaseDataTable, BaseCard, BaseDialog, UserCardProfile, BaseInfoField, NavUserCard, ScheduleManager };
+export { BaseInput, BaseButton, BasePassword, LoginForm, Header, HeaderM, Footer, Navbar, RegisterForm, BaseDataTable, BaseCard, BaseDialog, UserCardProfile, BaseInfoField, NavUserCard, ScheduleManager, EventCalendar, BaseDatePicker };
 export type { NavItem, SocialItem, NavItemNavbar, LoginValues, RegisterValues, ColumnConfig, ActionColumn, BaseInputProps, InfoFieldProps, ScheduleProps}
 
 //Plugin para regitrar todo de golpe

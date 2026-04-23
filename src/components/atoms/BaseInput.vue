@@ -6,8 +6,8 @@ import IftaLabel from 'primevue/iftalabel';
 import Message from 'primevue/message';
 import Checkbox from 'primevue/checkbox';
 import Select from 'primevue/select';
+import BaseDatePicker from './BaseDatePicker.vue';
 import type { BaseInputProps } from '../../types/forms';
-import DatePicker from 'primevue/datepicker';
 
 
 withDefaults(defineProps<BaseInputProps>(), {
@@ -59,26 +59,27 @@ const onInput = (event: any) => {
         :placeholder="placeholder"
         checkmark
         :highlightOnSelect="false"
+        :disabled="disabled"
         @update:model-value="onInput"
       />
       <label :for="label">{{ label }}</label>
     
     </IftaLabel>
 
-    <IftaLabel v-else-if="type === 'time'" variant="on">
+    <IftaLabel v-else-if="type === 'date' || type === 'time'" variant="on">
       <IconField>
         <InputIcon v-if="icon" :class="['pi', icon]" />
-          <DatePicker
+          <BaseDatePicker
             v-bind="$attrs"
             :id="label"
-            :model-value="(modelValue as Date)"
+            :model-value="(modelValue)"
             @update:model-value="onInput"
-            updateModelType="string"
-            timeOnly
-            fluid
+            :updateModelType="type === 'time' ? 'string' : 'date'"
+            :time-only="type === 'time'"
+            :fluid="true"
             :invalid="!!error"
             :placeholder="placeholder"
-            class="ui:w-full"
+            :disabled="disabled"
           />
       </IconField>
       
@@ -99,6 +100,7 @@ const onInput = (event: any) => {
           :class="[
               
           ]"
+          :disabled="disabled"
           :invalid="!!error"
           />
         </IconField>

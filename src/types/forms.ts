@@ -31,7 +31,7 @@ export interface BaseInputProps {
   modelValue?: string | number | boolean | Date;
   field?: string;
   label?: string;
-  type?: 'text' | 'password' | 'email' | 'number' | 'boolean' | 'select'| 'time';
+  type?: 'text' | 'password' | 'email' | 'number' | 'boolean' | 'select'| 'time' | 'date';
   placeholder?: string;
   error?: string;
   icon?: string;

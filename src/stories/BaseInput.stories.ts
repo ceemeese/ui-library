@@ -8,7 +8,7 @@ const meta: Meta<typeof BaseInput> = {
   argTypes: {
     type: {
       control: 'select', 
-      options: ['text', 'password', 'email', 'number', 'boolean', 'select'] 
+      options: ['text', 'password', 'email', 'number', 'boolean', 'select', 'time', 'date'] 
     },
     options: { control: 'object'}
   },
@@ -72,6 +72,14 @@ export const TimeType: Story = {
   args: {
     label: 'Apertura',
     type: 'time',
+    modelValue: new Date(),
+  },
+};
+
+export const DateType: Story = {
+  args: {
+    label: 'Fecha de evento',
+    type: 'date',
     modelValue: new Date(),
   },
 };
