@@ -80,6 +80,7 @@ const onInput = (event: any) => {
             :invalid="!!error"
             :placeholder="placeholder"
             :disabled="disabled"
+            :step-minute="stepMinute"
           />
       </IconField>
       

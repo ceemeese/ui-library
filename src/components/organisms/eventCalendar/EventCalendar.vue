@@ -72,6 +72,7 @@ const getEventStyle = (event: CalendarEvent<E>) => {
 
 const emit = defineEmits<{
     (e: 'event-click', event: CalendarEvent<E>) : void;
+    (e: 'cell-click', payload: {hour: number, resourceId: string | number}) : void;
 }>();
 
 </script>
@@ -109,7 +110,7 @@ const emit = defineEmits<{
                         class="ui:flex-shrink-0 ui:relative ui:border-r ui:border-slate-100 ui:bg-white">
 
                         <div v-if="isResourceDisabled(resource)" class="ui:absolute ui:inset-0 ui:bg-slate-100/60 ui:z-10 ui:flex ui:items-center ui:justify-center">
-                           <!-- <span class="ui:text-[10px] ui:font-bold ui:text-slate-400 ui:uppercase ui:tracking-widest ui:-rotate-90">Cerrada</span>-->
+                            <!--<span class="ui:text-[10px] ui:font-bold ui:text-slate-400 ui:uppercase ui:tracking-widest ui:-rotate-90">Cerrada</span>-->
                         </div>
                         
                         <div v-for="hour in hoursArray" :key="'cell-'+hour"
@@ -120,7 +121,8 @@ const emit = defineEmits<{
                                     ? 'ui:cursor-not-allowed' 
                                     : 'ui:hover:bg-slate-100/50',
                                 isClosedHour(hour) ? 'ui:bg-slate-100 ui:border-none' : '' 
-                            ]">
+                            ]"
+                            @click="!isResourceDisabled(resource) && !isClosedHour(hour) && emit('cell-click', { hour, resourceId: resource.id })">
                         </div>
 
                         <div v-for="event in events.filter(e => e.resourceId === resource.id)" :key="event.id"

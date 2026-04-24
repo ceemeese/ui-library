@@ -41,4 +41,5 @@ export interface BaseInputProps {
   options?: any[];
   optionLabel?: string;
   optionValue?: string;
+  stepMinute?: number;
 }

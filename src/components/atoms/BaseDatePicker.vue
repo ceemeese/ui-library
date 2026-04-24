@@ -11,6 +11,7 @@ defineProps<{
   size?: 'small' | 'large';
   showIcon?: boolean;
   showButtonBar?: boolean;
+  stepMinute?: number;
 }>();
 </script>
 
@@ -28,5 +29,6 @@ defineProps<{
       :show-button-bar="showButtonBar"
       class="ui:w-full custom-datepicker"
       dateFormat="dd/mm/yy"
+      :stepMinute="stepMinute"
     />
 </template>
