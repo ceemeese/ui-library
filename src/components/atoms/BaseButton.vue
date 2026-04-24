@@ -2,7 +2,8 @@
 import Button from 'primevue/button';
 import type { BaseButtonProps } from '../../types/forms';
 
-withDefaults(defineProps<BaseButtonProps>(), {
+
+const props = withDefaults(defineProps<BaseButtonProps>(), {
     disabled: false,
     raised: false,
     rounded: false,
@@ -14,26 +15,23 @@ const emit = defineEmits(['click']);
 
 <template>
     <Button
-        :label="label"
-        :disabled="disabled || loading"
-        :raised="raised"
-        :rounded="rounded"
-        :variant="variant"
-        :badge="badge"
-        :icon="icon"
-        :size="size"
-        :aria-label="ariaLabel"
-        :loading="loading"
-        :type="type"
+        :label="props.label"
+        :disabled="props.disabled || props.loading"
+        :raised="props.raised"
+        :rounded="props.rounded"
+        :variant="props.variant"
+        :badge="props.badge"
+        :icon="props.icon"
+        :size="props.size"
+        :aria-label="props.ariaLabel"
+        :loading="props.loading"
+        :type="props.type"
         @click="emit('click', $event)"
-        :class="['ui:transition-all ui:duration-200 ui:active:scale-95', $attrs.class]"
+        :class="['ui:!transition-transform ui:!transform ui:!duration-200 ui:active:!scale-95 ui:!ease-in-out', $attrs.class]"
     >
         <slot />
     </Button>
 </template>
 
 <style scoped>
-.active\:scale-95:active {
-  transform: scale(0.95);
-}
 </style>

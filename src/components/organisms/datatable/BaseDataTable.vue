@@ -7,7 +7,8 @@ import { ref } from 'vue';
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
-import type { ColumnConfig, ActionColumn } from '../../../types/datatable';
+import type { ColumnConfig } from '../../../types/datatable';
+import { isActionVisible, getActionClass, getActionIcon } from '../../../utils/action-utils';
 
 
 interface Props {
@@ -41,13 +42,6 @@ const filters = ref({
 })
 
 
-function isActionVisible<T>(action: ActionColumn<T>, data: any): boolean {
-    if (action.isVisible === undefined) return true;
-    return typeof action.isVisible === "function"
-        ? action.isVisible(data)
-        : action.isVisible;
-} 
-
 </script>
 
 
@@ -67,9 +61,12 @@ function isActionVisible<T>(action: ActionColumn<T>, data: any): boolean {
             :rowsPerPageOptions="props.rowsPerPageOptions"
             :useCustomPaginator="props.useCustomPaginator"
             :removableSort="props.removableSort">
-            <template v-if="props.showSearch" #header>
-                <div class="ui:flex ui:justify-end">
-                    <IconField>
+            <template #header>
+                <div class="ui:flex ui:justify-end ui:gap-4 ui:items-center ui:flex-row">
+                    <div class="ui:flex ui:gap-2">
+                        <slot name="table-actions"></slot>
+                    </div>
+                    <IconField v-if="props.showSearch">
                         <InputIcon>
                             <i class="pi pi-search" />
                         </InputIcon>
@@ -91,17 +88,17 @@ function isActionVisible<T>(action: ActionColumn<T>, data: any): boolean {
                                 <template v-if="isActionVisible(btn, slotProps.data)">
                                     <router-link v-if="btn.to" :to="btn.to(slotProps.data)" class="ui:no-underline">
                                         <Button
-                                        :icon="btn.icon"
+                                        :icon="getActionIcon(btn, slotProps.data)"
                                         :label="btn.text"
-                                        :class="['ui:!p-2', btn.class]" text rounded size="small">
+                                        :class="['ui:!p-2', getActionClass(btn, slotProps.data)]" text rounded size="small">
                                         </Button>
                                     </router-link>
 
                                     <Button 
                                         v-else
-                                        :icon="btn.icon"
+                                        :icon="getActionIcon(btn, slotProps.data)"
                                         :label="btn.text"
-                                        :class="['ui:!p-2', btn.class]" 
+                                        :class="['ui:!p-2', getActionClass(btn, slotProps.data)]" 
                                         text 
                                         rounded 
                                         size="small"

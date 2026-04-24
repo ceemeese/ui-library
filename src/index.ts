@@ -15,16 +15,21 @@ import BaseCard from './components/atoms/BaseCard.vue';
 import BaseDialog from './components/organisms/dialog/BaseDialog.vue'
 import UserCardProfile from './components/organisms/userCardProfile/UserCardProfile.vue';
 import BaseInfoField from './components/atoms/BaseInfoField.vue';
+import NavUserCard from './components/organisms/navUserCard/NavUserCard.vue';
+import ScheduleManager from './components/organisms/scheduleManager/ScheduleManager.vue';
+import EventCalendar from './components/organisms/eventCalendar/EventCalendar.vue';
+import BaseDatePicker from './components/atoms/BaseDatePicker.vue';
 import type { SocialItem, NavItem, NavItemNavbar } from './types/navigation';
 import type { LoginValues, RegisterValues, BaseInputProps } from './types/forms';
 import type { ColumnConfig, ActionColumn } from './types/datatable'
 import type { InfoFieldProps } from './components/atoms/BaseInfoField.vue';
+import type { ScheduleProps } from './components/organisms/scheduleManager/ScheduleManager.vue';
 
 
 
 //exportacion individual
-export { BaseInput, BaseButton, BasePassword, LoginForm, Header, HeaderM, Footer, Navbar, RegisterForm, BaseDataTable, BaseCard, BaseDialog, UserCardProfile, BaseInfoField};
-export type { NavItem, SocialItem, NavItemNavbar, LoginValues, RegisterValues, ColumnConfig, ActionColumn, BaseInputProps, InfoFieldProps}
+export { BaseInput, BaseButton, BasePassword, LoginForm, Header, HeaderM, Footer, Navbar, RegisterForm, BaseDataTable, BaseCard, BaseDialog, UserCardProfile, BaseInfoField, NavUserCard, ScheduleManager, EventCalendar, BaseDatePicker };
+export type { NavItem, SocialItem, NavItemNavbar, LoginValues, RegisterValues, ColumnConfig, ActionColumn, BaseInputProps, InfoFieldProps, ScheduleProps}
 
 //Plugin para regitrar todo de golpe
 const UILibrary: Plugin = {
@@ -45,6 +50,8 @@ const UILibrary: Plugin = {
     app.component('BaseDialog', BaseDialog);
     app.component('UserCardProfile', UserCardProfile);
     app.component('BaseInfoField', BaseInfoField);
+    app.component('NavUserCard', NavUserCard);
+    app.component('ScheduleManager', ScheduleManager);
 
     console.log('UI Library: PrimeVue y componentes locales registrados.');
   }

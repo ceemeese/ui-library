@@ -11,7 +11,25 @@ const visible = ref<boolean>(false);
 const localData = ref<Record<string, any>>({});
 
 const open = (data: any) => {
-    localData.value = data ? {...data} : {}
+
+    const preparedData = data ? {...data} : {};
+
+    props.inputsDialog?.forEach(input => {
+        const field = input.field;
+        if (!field) return;
+
+        const value = preparedData[field];
+
+        if (input.type === 'time' && typeof value === 'string' && value) {
+            const [hours, minutes] = value.split(':');
+            const date = new Date();
+            date.setHours(parseInt(hours!) || 0, parseInt(minutes!) || 0, 0, 0);
+
+            preparedData[field] = date;
+        }
+    });
+
+    localData.value = preparedData;
     visible.value = true;
 }
 
@@ -35,7 +53,22 @@ const emit = defineEmits(['update:modelValue', 'save']);
 const handleSave = (e: FormSubmitEvent) => {
     if (e.valid) {
 
-        const validatedData = { ...localData.value, ...e.values}
+        const validatedData = { ...localData.value, ...e.values};
+
+        props.inputsDialog?.forEach(input => {
+            const field = input.field;
+            if(!field) return;
+
+            if (input.type === 'time' && validatedData[field] instanceof Date) {
+                const dateObj = validatedData[field] as Date;
+
+                const hours = String(dateObj.getHours()).padStart(2, '0');
+                const minutes = String(dateObj.getMinutes()).padStart(2, '0');
+
+                validatedData[field] = `${hours}:${minutes}`
+            }
+        });
+
         emit('update:modelValue', validatedData);
         emit('save', validatedData);
         visible.value = false;
@@ -78,6 +111,9 @@ defineExpose({open});
                             :label="input.label"
                             v-model="localData[input.field!]"
                             :error="$form[input.field!]?.error?.message"/>
+                    </div>
+                    <div class="ui:mt-2">
+                        <slot :form="$form" :data="localData"></slot>
                     </div>
             </Form>
 
