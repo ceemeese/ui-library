@@ -75,6 +75,15 @@ const emit = defineEmits<{
     (e: 'cell-click', payload: {hour: number, resourceId: string | number}) : void;
 }>();
 
+
+const formatTime = (date: Date) => {
+    return date.toLocaleTimeString([], { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        hour12: false 
+    });
+};
+
 </script>
 
 <template>
@@ -131,6 +140,7 @@ const emit = defineEmits<{
                             :style="getEventStyle(event)"
                             @click.stop="emit('event-click', event)">
                             <div class="ui:font-bold ui:truncate">{{ event.title }}</div>
+                            <div class="ui:font-semibold ui:truncate">{{ formatTime(event.start) }} - {{ formatTime(event.end) }}</div>
                             <div class="ui:opacity-80 ui:truncate">{{ event.content }}</div>
                         </div>
                     </div>

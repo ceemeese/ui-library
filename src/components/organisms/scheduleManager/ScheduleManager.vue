@@ -40,13 +40,11 @@ const props = withDefaults(defineProps<ScheduleProps>(), {
 const formatTime = (time: any) => {
     if (!time || typeof time != 'string') return '';
 
-    console.log(time, 'TIMEEEEEEE')
     try {
         return time.includes(':') ? time.substring(0,5) : time;
     } catch (e) {
         return '';
     }
-    
 }
 
 const treeTableData = computed<TreeNode[]>(() => {

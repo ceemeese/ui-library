@@ -40,6 +40,8 @@ const updateDate = (newDate: Date) => {
                   placeholder="Día y hora"
                 />
               </div>
+
+              <slot name="additional-filters" />
         </div>
     </BaseCard>
 </template>
