@@ -33,6 +33,10 @@ const open = (data: any) => {
     visible.value = true;
 }
 
+const close = () => {
+    visible.value = false;
+};
+
 interface Props {
     labelButton?: string;
     icon?: string;
@@ -75,7 +79,7 @@ const handleSave = (e: FormSubmitEvent) => {
     }
 }
 
-defineExpose({open});
+defineExpose({open, close});
 
 </script>
 
@@ -117,12 +121,14 @@ defineExpose({open});
                     </div>
             </Form>
 
-                <template #footer>
+            <template #footer>
+                <slot name="footer" :data="localData">
                     <div class="ui:flex ui:justify-end ui:gap-2">
-                        <BaseButton label="Cancelar" severity="secondary" @click="visible = false" />
+                        <BaseButton label="Cancelar" severity="secondary" @click="close" />
                         <BaseButton label="Guardar" type="submit" form="base-dialog-form" />
                     </div>
-                </template>
+                </slot>
+            </template>
             
         </Dialog>
 </template>
