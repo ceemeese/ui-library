@@ -62,15 +62,15 @@ const filters = ref({
             :useCustomPaginator="props.useCustomPaginator"
             :removableSort="props.removableSort">
             <template #header>
-                <div class="ui:flex ui:justify-end ui:gap-4 ui:items-center ui:flex-row">
-                    <div class="ui:flex ui:gap-2">
+                <div class="ui:flex ui:flex-wrap ui:items-center ui:justify-between ui:gap-4 ui:w-full">
+                    <div class="ui:flex ui:gap-2 ui:items-center ui:overflow-hidden ui:max-w-full">
                         <slot name="table-actions"></slot>
                     </div>
-                    <IconField v-if="props.showSearch">
+                    <IconField v-if="props.showSearch" class="ui:w-full ui:sm:w-72">
                         <InputIcon>
                             <i class="pi pi-search" />
                         </InputIcon>
-                        <InputText v-model="filters['global'].value" placeholder="Buscar..." class="ui:rounded-xl" />
+                        <InputText v-model="filters['global'].value" placeholder="Buscar..." class="ui:rounded-xl ui:w-full" size="small"/>
                     </IconField>
                 </div>
             </template>
