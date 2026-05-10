@@ -29,13 +29,14 @@ const updateDate = (newDate: Date) => {
 <template>
  
     <BaseCard class="ui:mb-10 ui:relative ui:z-20" border-rounded="ui:rounded-3xl" padding="ui:p-6">
-        <div class="ui:flex ui:flex-col ui:md:flex-row ui:items-center ui:sm:justify-start ui:gap-2 ui:sm:gap-8 ui:p-2">
-            <div class="ui:flex-1">
+        <div class="ui:flex ui:flex-col ui:lg:flex-row ui:items-center ui:justify-between ui:gap-6 ui:p-2 ui:flex-wrap">
+            <div class="ui:flex-1 ui:text-center ui:lg:text-left ui:w-full">
                 <h2 class="ui: text-lg ui:sm:text-xl ui:font-bold ui:mb-1 ui:italic ui:text-slate-800">{{ props.title }}</h2>
                 <p class="ui:text-sm ui:text-gray-500">{{ props.subtitle }}</p>
             </div>
             
-            <div class="ui:w-full ui:md:w-80">
+            <div class="ui:flex ui:flex-col ui:sm:flex-row ui:w-full ui:lg:w-auto ui:items-center ui:gap-4">
+            <div class="ui:w-full ui:md:w-72">
               
                 <BaseDatePicker 
                   :model-value="props.modelValue" 
@@ -48,7 +49,8 @@ const updateDate = (newDate: Date) => {
                   iconDisplay="input"
                   :placeholder="props.placeholder"
                 />
-              </div>
+            </div>
+            </div>
 
               <slot name="additional-filters" />
         </div>

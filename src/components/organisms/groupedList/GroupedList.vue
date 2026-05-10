@@ -1,11 +1,11 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends Record<string, any>,">
 import BaseGroupedItem from '../../atoms/BaseGroupedItem.vue';
 
 defineProps<{
-  groups: any[];
-  groupTitleKey: string;
-  groupSubtitleKey?: string;
-  itemKey?: string;
+  groups: T[];
+  groupTitleKey: keyof T;
+  groupSubtitleKey?: keyof T;
+  itemKey?: keyof T;
 }>();
 </script>
 
@@ -20,7 +20,7 @@ defineProps<{
                 :items="group[itemKey || 'items']"
             >
                 <template #card="{ item }">
-                    <slot name="card" :item="item" />
+                    <slot name="card" :item="item" :group="group" />
                 </template>
 
                 
