@@ -4,7 +4,7 @@ import { BaseCard, BaseButton } from 'ui';
 
 const meta: Meta<typeof GroupedList> = {
   title: 'Organisms/GroupedList',
-  component: GroupedList,
+  component: GroupedList as any,
 };
 
 export default meta;
@@ -23,7 +23,8 @@ export const PadelSearchList: Story = {
         availableCourts: [
             { id: 101, name: 'Pista 1', time: '17:00', price: 20, type: 'Indoor', duration: 90 },
             { id: 102, name: 'Pista 2', time: '18:30', price: 15, type: 'Outdoor', duration: 60 }
-        ]
+        ],
+        weatherIcon: 'https://openweathermap.org/img/wn/10d@2x.png',
       }
     ]
   },

@@ -21,6 +21,7 @@ export const PadelClubRow: Story = {
       { id: 103, name: 'Pista 3 (Cristal)', time: '20:00', price: 20, type: 'Indoor', duration: 90 },
       { id: 104, name: 'Pista 5 (Cristal)', time: '21:30', price: 18, type: 'Indoor', duration: 90 },
     ],
+    icon: 'https://openweathermap.org/img/wn/01d@2x.png'
   },
   render: (args) => ({
     components: { BaseGroupedItem, BaseCard, BaseButton },

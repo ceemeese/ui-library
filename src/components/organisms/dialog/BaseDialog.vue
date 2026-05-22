@@ -79,6 +79,18 @@ const handleSave = (e: FormSubmitEvent) => {
     }
 }
 
+const dialogPT = {
+    pcCloseButton: {
+        root: {
+            class: [
+                'ui:!ring-0 ui:!outline-none ui:!border-none ui:!shadow-none',
+                'ui:!text-slate-400 ui:hover:!text-slate-700 ui:!bg-transparent ui:hover:!bg-slate-100',
+                'ui:!transition-colors ui:!duration-200'
+            ]
+        }
+    },
+};
+
 defineExpose({open, close});
 
 </script>
@@ -97,6 +109,7 @@ defineExpose({open, close});
             modal
             :header="props.header"
             :style="{ width: '30rem' }"
+            :pt="dialogPT"
         >
             <span v-if="props.subtitle" class="ui:text-surface-500 ui:dark:text-surface-400 ui:block ui:mb-8" > 
                 {{ props.subtitle }}
