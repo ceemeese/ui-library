@@ -27,7 +27,7 @@ const emit = defineEmits(['click']);
         :loading="props.loading"
         :type="props.type"
         @click="emit('click', $event)"
-        :class="['ui:!transition-transform ui:!transform ui:!duration-200 ui:active:!scale-95 ui:!ease-in-out', $attrs.class]"
+        :class="['ui:!transition-transform ui:!transform ui:!duration-200 ui:active:!scale-95 ui:!ease-in-out ui:whitespace-nowrap ui:flex-shrink-0 ui:!text-[10px] ui:font-black ui:uppercase ui:tracking-wider ui:px-4 ui:py-2.5 ui:rounded-xl', $attrs.class]"
     >
         <slot />
     </Button>
