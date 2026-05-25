@@ -5,6 +5,7 @@ defineProps<{
   groups: T[];
   groupTitleKey: keyof T;
   groupSubtitleKey?: keyof T;
+  groupIconKey?: keyof T;
   itemKey?: keyof T;
 }>();
 </script>
@@ -18,6 +19,7 @@ defineProps<{
                 :title="group[groupTitleKey]"
                 :subtitle="group[groupSubtitleKey || '']"
                 :items="group[itemKey || 'items']"
+                :icon="groupIconKey ? group[groupIconKey] : undefined"
             >
                 <template #card="{ item }">
                     <slot name="card" :item="item" :group="group" />

@@ -135,7 +135,7 @@ const formatTime = (date: Date) => {
                         </div>
 
                         <div v-for="event in events.filter(e => e.resourceId === resource.id)" :key="event.id"
-                            class="ui:absolute ui:left-1 ui:right-1 ui:rounded-lg ui:p-2 ui:text-xs ui:shadow-md ui:z-20 ui:border-l-4 ui:overflow-hidden ui:transition-all ui:duration-200 ui:hover:shadow-lg ui:hover:-translate-y-0.5 ui:hover:z-30 ui:cursor-pointer"
+                            class="ui:absolute ui:left-1 ui:right-1 ui:rounded-lg ui:p-2 ui:text-xs ui:shadow-md ui:z-15 ui:border-l-4 ui:overflow-hidden ui:transition-all ui:duration-200 ui:hover:shadow-lg ui:hover:-translate-y-0.5 ui:hover:z-30 ui:cursor-pointer"
                             :class="event.colorClass || 'ui:bg-blue-50 ui:border-blue-500 ui:text-blue-700'"
                             :style="getEventStyle(event)"
                             @click.stop="emit('event-click', event)">

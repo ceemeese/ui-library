@@ -13,5 +13,6 @@ export interface ColumnConfig<T = any> {
     field: string;
     header: string;
     sortable?: boolean;
+    sortField?: string;
     actions?: ActionColumn<T>[];
 }

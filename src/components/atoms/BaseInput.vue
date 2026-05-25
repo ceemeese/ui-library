@@ -8,9 +8,10 @@ import Checkbox from 'primevue/checkbox';
 import Select from 'primevue/select';
 import BaseDatePicker from './BaseDatePicker.vue';
 import type { BaseInputProps } from '../../types/forms';
+import { useAttrs, computed } from 'vue';
 
 
-withDefaults(defineProps<BaseInputProps>(), {
+const props = withDefaults(defineProps<BaseInputProps>(), {
   type: 'text',
   primary: false,
   size: 'medium',
@@ -21,6 +22,9 @@ withDefaults(defineProps<BaseInputProps>(), {
 defineOptions({
   inheritAttrs: false
 });
+
+const attrs = useAttrs();
+const inputId = computed(() => (attrs.id as string) || props.label);
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -36,7 +40,7 @@ const onInput = (event: any) => {
     <div v-if="type === 'boolean'" class="ui:flex ui:items-center ui:gap-3 ui:pt-2">
       <Checkbox
         v-bind="$attrs"
-        :id="label"
+        :id="inputId"
         :model-value="modelValue"
         :binary="true"
         :invalid="!!error"
@@ -48,7 +52,7 @@ const onInput = (event: any) => {
     <IftaLabel v-else-if="type === 'select'" variant="on">
       <Select
         v-bind="$attrs"
-        :id="label"
+        :id="inputId"
         :type="type"
         :model-value="modelValue"
         :invalid="!!error"
@@ -71,7 +75,7 @@ const onInput = (event: any) => {
         <InputIcon v-if="icon" :class="['pi', icon]" />
           <BaseDatePicker
             v-bind="$attrs"
-            :id="label"
+            :id="inputId"
             :model-value="(modelValue)"
             @update:model-value="onInput"
             :updateModelType="type === 'time' ? 'string' : 'date'"
@@ -93,7 +97,7 @@ const onInput = (event: any) => {
           
           <InputText
           v-bind="$attrs"
-          :id="label"
+          :id="inputId"
           :type="type"
           :value="modelValue"
           @input="onInput"
