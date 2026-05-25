@@ -77,10 +77,9 @@ const filters = ref({
 
             <Column 
                 v-for="col of props.columns" 
-                :key="col.field" 
-                :field="col.field" 
-                :header="col.header"
-                :sortable="col.sortable">
+                :key="col.field"
+                :sortable="col.sortable"
+                v-bind="col">
 
                 <template #body="slotProps">
                     <div v-if="col.actions">
@@ -112,7 +111,7 @@ const filters = ref({
 
 
                     <slot v-else :name="col.field" :data="slotProps.data">
-                        {{ slotProps.data[col.field] }}
+                        {{ col.field.includes('.') ? col.field.split('.').reduce((obj, key) => obj?.[key], slotProps.data) : slotProps.data[col.field] }}
                     </slot>
                 </template>
 
