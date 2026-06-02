@@ -17,6 +17,8 @@ const router = createRouter({
     { path: '/contact', name: 'contact', component: { render: () => null } },
     { path: '/register', name: 'register', component: { render: () => null } },
     { path: '/profile', name: 'profile', component: { render: () => null } },
+    { path: '/privacy', name: 'privacy', component: { render: () => null } },
+    { path: '/terms', name: 'terms', component: { render: () => null } },
   ],
 });
 

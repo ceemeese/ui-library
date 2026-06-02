@@ -8,17 +8,21 @@ interface Props {
     socialItems?: SocialItem[];
     maxWidth?: string;
     blurAmount?: string;
+    privacyRouteName?: string;
+    termsRouteName?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
     navigationItems: () => [],
     socialItems: () => [
-        { icon: 'pi pi-instagram', link: '#', label: 'Instagram' },
-        { icon: 'pi pi-twitter', link: '#', label: 'Twitter' },
-        { icon: 'pi pi-linkedin', link: '#', label: 'LinkedIn' }
+        { icon: 'pi pi-instagram', link: 'https://www.instagram.com', label: 'Instagram' },
+        { icon: 'pi pi-twitter', link: 'https://x.com/', label: 'Twitter' },
+        { icon: 'pi pi-linkedin', link: 'https://www.linkedin.com/', label: 'LinkedIn' }
     ],
     maxWidth: 'ui:max-w-7xl',
-    blurAmount: 'ui:backdrop-blur-xl'
+    blurAmount: 'ui:backdrop-blur-xl',
+    privacyRouteName: 'privacy',
+    termsRouteName: 'terms'
 })
 
 </script>
@@ -74,8 +78,19 @@ const props = withDefaults(defineProps<Props>(), {
             <div class="ui:flex ui:flex-col md:ui:flex-row ui:justify-between ui:items-center ui:gap-2 ui:text-[10px] ui:text-gray-400">
                 <p>© 2026 {{ props.titleLogo }}. Todos los derechos reservados.</p>
                 <div class="ui:flex ui:gap-4 ui:font-medium">
-                    <a href="#" class="ui:hover:text-black ui:no-underline">Privacidad</a>
-                    <a href="#" class="ui:hover:text-black ui:no-underline">Términos</a>
+                    <router-link 
+                        :to="{ name: props.privacyRouteName }" 
+                        class="ui:text-gray-400 ui:hover:text-black ui:no-underline ui:transition-colors"
+                    >
+                        Privacidad
+                    </router-link>
+                    
+                    <router-link 
+                        :to="{ name: props.termsRouteName }" 
+                        class="ui:text-gray-400 ui:hover:text-black ui:no-underline ui:transition-colors"
+                    >
+                        Términos
+                    </router-link>
                 </div>
             </div>
         </div>
