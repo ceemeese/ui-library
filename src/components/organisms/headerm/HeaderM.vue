@@ -91,7 +91,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
                                 :label="props.loginLabel"
                                 size="small"
                                 rounded
-                                class="ui:!bg-black ui:!border-none"
+                                class="ui:!bg-black ui:!border-none ui:!px-4 ui:!py-2"
                                 @click="emit('login')"
                             />
                         </template>

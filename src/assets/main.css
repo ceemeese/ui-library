@@ -751,6 +751,9 @@
   .ui\:p-10 {
     padding: calc(var(--ui-spacing) * 10);
   }
+  .ui\:\!px-4 {
+    padding-inline: calc(var(--ui-spacing) * 4) !important;
+  }
   .ui\:\!px-5 {
     padding-inline: calc(var(--ui-spacing) * 5) !important;
   }
@@ -771,6 +774,9 @@
   }
   .ui\:\!py-1 {
     padding-block: calc(var(--ui-spacing) * 1) !important;
+  }
+  .ui\:\!py-2 {
+    padding-block: calc(var(--ui-spacing) * 2) !important;
   }
   .ui\:py-1 {
     padding-block: calc(var(--ui-spacing) * 1);
