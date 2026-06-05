@@ -22,6 +22,7 @@ import BaseDatePicker from './components/atoms/BaseDatePicker.vue';
 import BaseDateSelector from './components/atoms/BaseDateSelector.vue';
 import BaseGroupedItem from './components/atoms/BaseGroupedItem.vue';
 import GroupedList from './components/organisms/groupedList/GroupedList.vue';
+import BasePill from './components/atoms/BasePill.vue';
 import type { SocialItem, NavItem, NavItemNavbar } from './types/navigation';
 import type { LoginValues, RegisterValues, BaseInputProps } from './types/forms';
 import type { ColumnConfig, ActionColumn } from './types/datatable'
@@ -31,14 +32,14 @@ import type { ScheduleProps } from './components/organisms/scheduleManager/Sched
 
 
 //exportacion individual
-export { BaseInput, BaseButton, BasePassword, LoginForm, Header, HeaderM, Footer, Navbar, RegisterForm, BaseDataTable, BaseCard, BaseDialog, UserCardProfile, BaseInfoField, NavUserCard, ScheduleManager, EventCalendar, BaseDatePicker, BaseDateSelector, BaseGroupedItem, GroupedList };
+export { BaseInput, BaseButton, BasePassword, LoginForm, Header, HeaderM, Footer, Navbar, RegisterForm, BaseDataTable, BaseCard, BaseDialog, UserCardProfile, BaseInfoField, NavUserCard, ScheduleManager, EventCalendar, BaseDatePicker, BaseDateSelector, BaseGroupedItem, GroupedList, BasePill };
 export type { NavItem, SocialItem, NavItemNavbar, LoginValues, RegisterValues, ColumnConfig, ActionColumn, BaseInputProps, InfoFieldProps, ScheduleProps}
 
 //Plugin para regitrar todo de golpe
 const UILibrary: Plugin = {
   install(app: App) {
 
-    // Registro de los componentes de librería
+    //Registro de los componentes de librería
     app.component('BaseInput', BaseInput);
     app.component('BaseButton', BaseButton);
     app.component('BasePassword', BasePassword);
@@ -55,8 +56,14 @@ const UILibrary: Plugin = {
     app.component('BaseInfoField', BaseInfoField);
     app.component('NavUserCard', NavUserCard);
     app.component('ScheduleManager', ScheduleManager);
+    app.component('BasePill', BasePill)
+    app.component('EventCalendar', EventCalendar);
+    app.component('BaseDatePicker', BaseDatePicker);
+    app.component('BaseDateSelector', BaseDateSelector);
+    app.component('BaseGroupedItem', BaseGroupedItem);
+    app.component('GroupedList', GroupedList);
 
-    console.log('UI Library: PrimeVue y componentes locales registrados.');
+    console.log('UI Library: PrimeVue y componentes locales registrados');
   }
 };
 
