@@ -35,13 +35,15 @@ const onClickEdit = () => {
             </h3>
         </div>
 
-        <div class="ui:flex ui:items-center ui:gap-6 ui:p-4 ui:relative">
-            <Avatar
-            :image="props.image"
-            :label="!image ? initials : undefined"
-            :size="size"
-            :shape="shape"
-            />
+        <div class="ui:flex ui:items-center ui:gap-6 ui:md:gap-6 ui:p-4 ui:relative">
+            <div class="ui:hidden ui:md:block">
+                <Avatar
+                :image="props.image"
+                :label="!image ? initials : undefined"
+                :size="size"
+                :shape="shape"
+                />
+                </div>
 
             <div class="ui:flex-1">
                 <h2 class="ui:text-xl ui:font-bold ui:text-slate-800"> {{ mainText }}</h2>
@@ -55,12 +57,13 @@ const onClickEdit = () => {
             <div class="ui:relative ui:z-[100]">
                 <slot name="actions">
                     <BaseButton
-                        label="Editar"
+                        :label="false ? 'Editar' : ''"
                         variant="outlined"
                         size="small"
                         icon="pi pi-user-edit"
                         rounded
                         @click="onClickEdit"
+                        class="ui:!px-3"
                     />
                 </slot>
             </div>

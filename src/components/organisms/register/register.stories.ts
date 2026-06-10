@@ -20,6 +20,21 @@ export const Default: Story = {
       };
       return { args, handleSubmit };
     },
-    template: '<RegisterForm @submit="handleSubmit" />',
+
+    template: '<RegisterForm v-bind="args" @submit="handleSubmit" />',
+  }),
+};
+
+
+export const Loading: Story = {
+  args: {
+    loading: true,
+  },
+  render: (args) => ({
+    components: { RegisterForm },
+    setup() {
+      return { args };
+    },
+    template: '<RegisterForm v-bind="args" />',
   }),
 };
