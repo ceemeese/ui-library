@@ -11,6 +11,7 @@ interface Props {
     blurAmount?: string;
     registerLabel?: string;
     loginLabel?: string;
+    homeRouteName?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -21,6 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
     blurAmount: 'ui:backdrop-blur-xl',
     registerLabel: 'Regístrate' ,
     loginLabel: 'Log in',
+    homeRouteName: 'home'
 })
 
 const isScrolled = ref(false);
@@ -32,6 +34,7 @@ const emit = defineEmits<{
     (e: 'login'): void;
     (e: 'logout'): void;
     (e: 'profile'): void;
+    (e: 'toggle-mobile-menu'): void;
 }>();
 
 
@@ -40,34 +43,29 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
 </script>
 
 <template>
-    <header 
-        :class="[
-            'ui:fixed ui:top-0 ui:left-0 ui:z-50 ui:w-full ui:px-6 ui:pointer-event-none',
-        ]"
-    >
+    <header :class="['ui:fixed ui:top-0 ui:left-0 ui:z-50 ui:w-full ui:px-6 ui:pointer-event-none',]">
 
-        <div :class="[
-                    'ui:mx-auto ui:transition-all ui:duration-500 ui:ease-in-out ui:pointer-events-auto',
-                    isScrolled ? 'ui:max-w-5xl ui:mt-2' : 'ui:max-w-7xl ui:mt-6'
-                ]">
-
-        
-            <div 
-                :class="[
-                    'ui:flex ui:items-center ui:justify-between ui:px-6 ui:py-3 ui:rounded-2xl ui:border ui:shadow-lg ui:transition-all ui:duration-500', 
+        <div :class="['ui:mx-auto ui:transition-all ui:duration-500 ui:ease-in-out ui:pointer-events-auto',isScrolled ? 'ui:max-w-5xl ui:mt-2' : 'ui:max-w-7xl ui:mt-6']">
+            <div :class="['ui:flex ui:items-center ui:justify-between ui:px-6 ui:py-3 ui:rounded-2xl ui:border ui:shadow-lg ui:transition-all ui:duration-500', 
                     isScrolled
                         ? 'ui:bg-white/70 ui:backdrop-blur-md ui:border-gray-200/50' 
                         : 'ui:bg-white ui:border-slate-100'
                 ]"
             >
-                <router-link :to="{ name: 'home' }" class="ui:flex ui:items-center ui:gap-2 ui:no-underline">
-                    <slot name="logo">
-                    <div class="ui:bg-black ui:p-1.5 ui:rounded-lg">
-                        <i class="pi pi-bolt ui:text-white ui:text-sm"></i>
-                    </div>
-                    <span class="ui:font-bold ui:text-lg ui:tracking-tight ui:text-black">Logo</span>
-                    </slot>
-                </router-link>
+
+                <div class="ui:flex ui:items-center ui:gap-3">
+                    <button class="ui:lg:hidden ui:p-2 ui:text-gray-600" @click="emit('toggle-mobile-menu')">
+                            <i class="pi pi-bars ui:text-lg"></i>
+                    </button>
+                    <router-link :to="{ name: props.homeRouteName }" class="ui:flex ui:items-center ui:gap-2 ui:no-underline">
+                        <slot name="logo">
+                            <div class="ui:bg-black ui:p-1.5 ui:rounded-lg">
+                                    <i class="pi pi-bolt ui:text-white ui:text-sm"></i>
+                            </div>
+                            <span class="ui:font-bold ui:text-lg ui:tracking-tight ui:text-black">Logo</span>
+                        </slot>
+                    </router-link>
+                </div>
 
                 <nav class="ui:hidden ui:lg:flex ui:items-center ui:gap-2">
                     <router-link

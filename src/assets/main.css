@@ -259,6 +259,9 @@
   .ui\:top-0 {
     top: calc(var(--ui-spacing) * 0);
   }
+  .ui\:right-0 {
+    right: calc(var(--ui-spacing) * 0);
+  }
   .ui\:right-1 {
     right: calc(var(--ui-spacing) * 1);
   }
@@ -511,6 +514,9 @@
   .ui\:gap-y-2 {
     row-gap: calc(var(--ui-spacing) * 2);
   }
+  .ui\:self-start {
+    align-self: flex-start;
+  }
   .ui\:truncate {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -750,6 +756,9 @@
   }
   .ui\:p-10 {
     padding: calc(var(--ui-spacing) * 10);
+  }
+  .ui\:\!px-3 {
+    padding-inline: calc(var(--ui-spacing) * 3) !important;
   }
   .ui\:\!px-4 {
     padding-inline: calc(var(--ui-spacing) * 4) !important;
@@ -1359,15 +1368,40 @@
       width: calc(var(--ui-spacing) * 72);
     }
   }
+  .ui\:sm\:w-auto {
+    @media (width >= 40rem) {
+      width: auto;
+    }
+  }
   .ui\:sm\:flex-row {
     @media (width >= 40rem) {
       flex-direction: row;
+    }
+  }
+  .ui\:sm\:items-center {
+    @media (width >= 40rem) {
+      align-items: center;
+    }
+  }
+  .ui\:sm\:justify-between {
+    @media (width >= 40rem) {
+      justify-content: space-between;
+    }
+  }
+  .ui\:sm\:self-auto {
+    @media (width >= 40rem) {
+      align-self: auto;
     }
   }
   .ui\:sm\:text-xl {
     @media (width >= 40rem) {
       font-size: var(--ui-text-xl);
       line-height: var(--tw-leading, var(--ui-text-xl--line-height));
+    }
+  }
+  .ui\:md\:block {
+    @media (width >= 48rem) {
+      display: block;
     }
   }
   .ui\:md\:w-72 {
@@ -1378,6 +1412,11 @@
   .ui\:md\:grid-cols-3 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .ui\:md\:gap-6 {
+    @media (width >= 48rem) {
+      gap: calc(var(--ui-spacing) * 6);
     }
   }
   .ui\:lg\:flex {

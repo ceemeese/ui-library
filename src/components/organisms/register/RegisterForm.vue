@@ -11,6 +11,10 @@ import { registerSchema } from './register.schema';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
 import { RouterLink } from 'vue-router';
 
+const props = defineProps<{
+    loading?: boolean;
+}>();
+
 const resolver = zodResolver(registerSchema);
 
 const formValues = reactive<RegisterValues>({
@@ -107,6 +111,7 @@ const onFormSubmit = (e: FormSubmitEvent) => {
             type="submit" 
             label="Registrar" 
             class="ui:mt-6 ui:w-full ui:py-2"
+            :loading="props.loading"
             />
 
             <p class="ui:text-center ui:text-sm ui:text-gray-500 ui:mt-2">

@@ -12,10 +12,16 @@ const props = defineProps({
     navigationItems: {
         type: Array as () => MenuItem[],
         default: () => []
-    }
+    },
+    homeRoute : {
+        type: String,
+        default: 'home'
+    },
+    isMobile : { type : Boolean, default: false }
 });
 
-const emit = defineEmits(['logout']);
+const emit = defineEmits(['logout', 'close']);
+
 const getInitial = (name: string) => name ? name.charAt(0).toUpperCase() : 'U';
 </script>
 
@@ -30,8 +36,14 @@ const getInitial = (name: string) => name ? name.charAt(0).toUpperCase() : 'U';
                 class="ui:!w-full ui:!h-full ui:!bg-transparent ui:!border-none"
             >
                 <template #start>
+                    <button v-if="isMobile" 
+                        @click="$emit('close')" 
+                        class="ui:absolute ui:top-0 ui:right-0 ui:p-2 ui:text-gray-500 ui:hover:text-black ui:z-50">
+                        <i class="pi pi-times ui:text-xl"></i>
+                    </button>
+                    
                     <router-link 
-                    :to="{ name: 'home' }"
+                    :to="{ name: props.homeRoute }"
                     class="ui:flex ui:flex-col ui:items-center ui:gap-2 ui:py-4 ui:mb-2 ui:no-underline">
                         <slot name="logo">
                             <div class="ui:bg-black ui:w-12 ui:h-12 ui:flex ui:items-center ui:justify-center ui:rounded-2xl ui:shadow-lg">
