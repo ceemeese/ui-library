@@ -8,6 +8,7 @@ const props = withDefaults(defineProps<BaseButtonProps>(), {
     raised: false,
     rounded: false,
     type: 'button',
+    loading: false,
 });
 
 const emit = defineEmits(['click']);

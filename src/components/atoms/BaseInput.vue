@@ -35,7 +35,7 @@ const onInput = (event: any) => {
 </script>
 
 <template>
-  <div class="ui:flex ui:flex-col ui:gap-1 ui:w-full ui:mt-4"> 
+  <div class="ui:flex ui:flex-col ui:gap-1 ui:w-full"> 
     
     <div v-if="type === 'boolean'" class="ui:flex ui:items-center ui:gap-3 ui:pt-2">
       <Checkbox
@@ -113,9 +113,11 @@ const onInput = (event: any) => {
         <label :for="label">{{ label }}</label>
     </IftaLabel>
         
-    <Message v-if="error" severity="error" size="small" class="animate-fade-in" variant="simple">
-      {{ error }}
-    </Message>
+    <div class="ui:h-[24px] ui:w-full">
+      <Message v-if="error" severity="error" size="small" class="animate-fade-in ui:!text-[10px]" variant="simple">
+        {{ error }}
+      </Message>
+    </div>
 
   </div>
 </template>

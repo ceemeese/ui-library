@@ -11,7 +11,7 @@ import { registerSchema } from './register.schema';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
 import { RouterLink } from 'vue-router';
 
-const props = defineProps<{
+defineProps<{
     loading?: boolean;
 }>();
 
@@ -43,7 +43,7 @@ const onFormSubmit = (e: FormSubmitEvent) => {
 <template>
 
     <div class="ui:max-w-2xl ui:mx-auto ui:p-8 ui:bg-white ui:rounded-2xl ui:shadow-xl ui:border ui:border-gray-100 ui:shrink-0">
-        <div class="ui:text-center ui:mb-2">
+        <div class="ui:text-center ui:mb-8">
             <h2 class="ui:text-2xl ui:font-extrabold ui:text-gray-900">Crea tu cuenta</h2>
         </div>
 
@@ -84,13 +84,14 @@ const onFormSubmit = (e: FormSubmitEvent) => {
                 />
             </div>
 
-            <BaseInput
-            v-model="formValues.email"
-            name="email" 
-            label="Email" 
-            :error="$form.email?.error?.message"
-            />
-
+            <div class="ui:grid ui:grid-cols-1 ui:gap-2">
+                <BaseInput
+                v-model="formValues.email"
+                name="email" 
+                label="Email" 
+                :error="$form.email?.error?.message"
+                />
+            </div>
 
             <div class="ui:grid ui:grid-cols-2 ui:gap-2">
                 <BaseInput
@@ -111,7 +112,7 @@ const onFormSubmit = (e: FormSubmitEvent) => {
             type="submit" 
             label="Registrar" 
             class="ui:mt-6 ui:w-full ui:py-2"
-            :loading="props.loading"
+            :loading="loading"
             />
 
             <p class="ui:text-center ui:text-sm ui:text-gray-500 ui:mt-2">

@@ -57,8 +57,8 @@ const onClickEdit = () => {
             <div class="ui:relative ui:z-[100]">
                 <slot name="actions">
                     <BaseButton
-                        :label="false ? 'Editar' : ''"
                         variant="outlined"
+                        label="Editar"
                         size="small"
                         icon="pi pi-user-edit"
                         rounded

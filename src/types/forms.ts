@@ -3,6 +3,16 @@ export interface LoginValues {
     password: string,
 }
 
+export interface ForgotValues {
+    email: string,
+}
+
+export interface ResetPasswordValues {
+    oldPassword?: string;
+    newPassword: string,
+    confirmPassword: string;
+}
+
 export interface RegisterValues {
     dni: string;
     name: string;
@@ -42,4 +52,16 @@ export interface BaseInputProps {
   optionLabel?: string;
   optionValue?: string;
   stepMinute?: number;
+}
+
+export interface BasePasswordProps {
+  modelValue?: string;
+  label?: string;
+  error?: string;
+  feedback?: boolean;
+  toggleMask?: boolean;
+  showClear?: boolean;
+  size?: 'small' | 'medium' | 'large';
+  disabled?: boolean;
+  name?: string;
 }

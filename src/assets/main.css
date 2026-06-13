@@ -1,4 +1,4 @@
-/*! tailwindcss v4.3.0 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.3.1 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -254,22 +254,22 @@
     position: sticky;
   }
   .ui\:inset-0 {
-    inset: calc(var(--ui-spacing) * 0);
+    inset: 0;
   }
   .ui\:top-0 {
-    top: calc(var(--ui-spacing) * 0);
+    top: 0;
   }
   .ui\:right-0 {
-    right: calc(var(--ui-spacing) * 0);
+    right: 0;
   }
   .ui\:right-1 {
-    right: calc(var(--ui-spacing) * 1);
+    right: var(--ui-spacing);
   }
   .ui\:left-0 {
-    left: calc(var(--ui-spacing) * 0);
+    left: 0;
   }
   .ui\:left-1 {
-    left: calc(var(--ui-spacing) * 1);
+    left: var(--ui-spacing);
   }
   .ui\:z-10 {
     z-index: 10;
@@ -298,17 +298,17 @@
   .ui\:my-5 {
     margin-block: calc(var(--ui-spacing) * 5);
   }
+  .ui\:mt-1 {
+    margin-top: var(--ui-spacing);
+  }
   .ui\:mt-2 {
     margin-top: calc(var(--ui-spacing) * 2);
-  }
-  .ui\:mt-4 {
-    margin-top: calc(var(--ui-spacing) * 4);
   }
   .ui\:mt-6 {
     margin-top: calc(var(--ui-spacing) * 6);
   }
   .ui\:mb-1 {
-    margin-bottom: calc(var(--ui-spacing) * 1);
+    margin-bottom: var(--ui-spacing);
   }
   .ui\:mb-2 {
     margin-bottom: calc(var(--ui-spacing) * 2);
@@ -354,6 +354,9 @@
   }
   .ui\:h-14 {
     height: calc(var(--ui-spacing) * 14);
+  }
+  .ui\:h-\[24px\] {
+    height: 24px;
   }
   .ui\:h-auto {
     height: auto;
@@ -415,6 +418,9 @@
   .ui\:max-w-md {
     max-width: var(--ui-container-md);
   }
+  .ui\:min-w-0 {
+    min-width: 0;
+  }
   .ui\:min-w-\[240px\] {
     min-width: 240px;
   }
@@ -473,7 +479,7 @@
     justify-content: flex-end;
   }
   .ui\:gap-1 {
-    gap: calc(var(--ui-spacing) * 1);
+    gap: var(--ui-spacing);
   }
   .ui\:gap-2 {
     gap: calc(var(--ui-spacing) * 2);
@@ -514,8 +520,8 @@
   .ui\:gap-y-2 {
     row-gap: calc(var(--ui-spacing) * 2);
   }
-  .ui\:self-start {
-    align-self: flex-start;
+  .ui\:gap-y-3 {
+    row-gap: calc(var(--ui-spacing) * 3);
   }
   .ui\:truncate {
     overflow: hidden;
@@ -737,7 +743,7 @@
     padding: calc(var(--ui-spacing) * 2) !important;
   }
   .ui\:p-1 {
-    padding: calc(var(--ui-spacing) * 1);
+    padding: var(--ui-spacing);
   }
   .ui\:p-1\.5 {
     padding: calc(var(--ui-spacing) * 1.5);
@@ -782,13 +788,13 @@
     padding-inline: calc(var(--ui-spacing) * 8);
   }
   .ui\:\!py-1 {
-    padding-block: calc(var(--ui-spacing) * 1) !important;
+    padding-block: var(--ui-spacing) !important;
   }
   .ui\:\!py-2 {
     padding-block: calc(var(--ui-spacing) * 2) !important;
   }
   .ui\:py-1 {
-    padding-block: calc(var(--ui-spacing) * 1);
+    padding-block: var(--ui-spacing);
   }
   .ui\:py-2 {
     padding-block: calc(var(--ui-spacing) * 2);
@@ -1376,21 +1382,6 @@
   .ui\:sm\:flex-row {
     @media (width >= 40rem) {
       flex-direction: row;
-    }
-  }
-  .ui\:sm\:items-center {
-    @media (width >= 40rem) {
-      align-items: center;
-    }
-  }
-  .ui\:sm\:justify-between {
-    @media (width >= 40rem) {
-      justify-content: space-between;
-    }
-  }
-  .ui\:sm\:self-auto {
-    @media (width >= 40rem) {
-      align-self: auto;
     }
   }
   .ui\:sm\:text-xl {
