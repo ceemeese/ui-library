@@ -2,17 +2,7 @@
 import Password from 'primevue/password';
 import IftaLabel from 'primevue/iftalabel';
 import Message from 'primevue/message';
-
-interface BasePasswordProps {
-  modelValue?: string;
-  label?: string;
-  error?: string;
-  feedback?: boolean;
-  toggleMask?: boolean;
-  showClear?: boolean;
-  size?: 'small' | 'medium' | 'large';
-  disabled?: boolean;
-}
+import type { BasePasswordProps } from '../../types/forms';
 
 withDefaults(defineProps<BasePasswordProps>(), {
   feedback: false,
@@ -34,9 +24,10 @@ const onInputPasssword = (event: Event) => {
 </script>
 
 <template>
-  <div class="ui:flex ui:flex-col ui:gap-1 ui:w-full ui:mt-4">
+  <div class="ui:flex ui:flex-col ui:gap-1 ui:w-full">
         <IftaLabel>
             <Password
+                :name="name"
                 v-bind="$attrs"
                 :id="label"
                 :value="modelValue"
@@ -44,7 +35,9 @@ const onInputPasssword = (event: Event) => {
                 :feedback="feedback"
                 :toggleMask="toggleMask"
                 :invalid="!!error"
+                :size="size"
                 :showClear="showClear"
+                :disabled="disabled"
                 fluid
                 :pt="{
                     input: { 
@@ -55,9 +48,11 @@ const onInputPasssword = (event: Event) => {
             <label :for="label">{{ label }}</label>
         </IftaLabel>
 
-        <Message v-if="error" severity="error" size="small" variant="simple">
-        {{ error }}
-        </Message>
+        <div class="ui:h-[24px] ui:w-full">
+          <Message v-if="error" severity="error" size="small" class="animate-fade-in ui:!text-[10px]" variant="simple">
+            {{ error }}
+          </Message>
+        </div>
 
   </div>
 </template>

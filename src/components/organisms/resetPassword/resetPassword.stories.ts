@@ -1,35 +1,32 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import LoginForm from '../login/LoginForm.vue';
+import ResetPasswordForm from './ResetPasswordForm.vue';
 
-const meta: Meta<typeof LoginForm> = {
-  title: 'Organisms/LoginForm',
-  component: LoginForm,
+const meta: Meta<typeof ResetPasswordForm> = {
+  title: 'Organisms/ResetPasswordForm',
+  component: ResetPasswordForm,
   tags: ['autodocs'],
   decorators: [() => ({ template: '<div style="max-width: 450px; margin: 2rem auto;"><story/></div>' })],
-} satisfies Meta<typeof LoginForm>;
+} satisfies Meta<typeof ResetPasswordForm>;
 
 export default meta;
-type Story = StoryObj<typeof LoginForm>;
+type Story = StoryObj<typeof ResetPasswordForm>;
 
 export const Default: Story = {
-  args: {
-    forgotPasswordLabel: '¿Olvidaste tu contraseña?',
-    forgotPasswordRoute: 'forgot-password',
-    registerLabel: 'Regístrate aquí',
-    registerRoute: 'register',
+    args: {
     loading: true,
   },
   render: (args) => ({
-    components: { LoginForm },
+    components: { ResetPasswordForm },
     setup() {
       const handleSubmit = (values: any) => {
-        alert('Formulario enviado: ' + JSON.stringify(values, null, 2));
+        alert('Nueva contraseñ creada: ' + JSON.stringify(values, null, 2));
       };
       return { args, handleSubmit };
     },
-    template: '<LoginForm v-bind="args" @submit="handleSubmit" />',
+    template: '<ResetPasswordForm v-bind="args" @submit="handleSubmit" />',
   }),
 };
+
 
 export const Loading: Story = {
   args: {

@@ -19,6 +19,8 @@ const router = createRouter({
     { path: '/profile', name: 'profile', component: { render: () => null } },
     { path: '/privacy', name: 'privacy', component: { render: () => null } },
     { path: '/terms', name: 'terms', component: { render: () => null } },
+    { path: '/forgot-password', name: 'forgot-password', component: { render: () => null } },
+    { path: '/back-route', name: 'back-route', component: { render: () => null } },
   ],
 });
 

@@ -45,6 +45,7 @@ interface Props {
     inputsDialog?: BaseInputProps[]
     modelValue?: Record<string, any>
     resolver?: any;
+    loading?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -121,7 +122,7 @@ defineExpose({open, close});
                 :resolver="resolver"
                 @submit="handleSave" 
                 v-slot="$form">
-                    <div v-for="input in props.inputsDialog" :key="input.field" class="ui:mb-4">
+                    <div v-for="input in props.inputsDialog" :key="input.field" class="ui:mb-1">
                         <BaseInput 
                             v-bind="input"
                             :name="input.field"
@@ -129,7 +130,7 @@ defineExpose({open, close});
                             v-model="localData[input.field!]"
                             :error="$form[input.field!]?.error?.message"/>
                     </div>
-                    <div class="ui:mt-2">
+                    <div class="ui:mt-1">
                         <slot :form="$form" :data="localData"></slot>
                     </div>
             </Form>
@@ -137,8 +138,8 @@ defineExpose({open, close});
             <template #footer>
                 <slot name="footer" :data="localData">
                     <div class="ui:flex ui:justify-end ui:gap-2">
-                        <BaseButton label="Cancelar" severity="secondary" @click="close" />
-                        <BaseButton label="Guardar" type="submit" form="base-dialog-form" />
+                        <BaseButton label="Cancelar" severity="secondary" @click="close" :loading="loading" />
+                        <BaseButton label="Guardar" type="submit" form="base-dialog-form" :loading="loading" />
                     </div>
                 </slot>
             </template>

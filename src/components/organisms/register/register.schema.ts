@@ -1,16 +1,16 @@
 import { z } from 'zod';
 
 export const registerSchema = z.object({
-    dni: z.string().min(1, 'El dni es obligatorio'),
-    name: z.string().min(1, 'El nombre es obligatorio'),
-    lastName: z.string().min(1, 'El apellido es obligatorio'),
-    username: z.string().min(1, 'El apodo es obligatorio'),
+    dni: z.string().min(1, 'Obligatorio'),
+    name: z.string().min(1, 'Obligatorio'),
+    lastName: z.string().min(1, 'Obligatorio'),
+    username: z.string().min(1, 'Obligatorio'),
     email: z.email('Introduce un email correcto'),
     phoneNumber: z
         .string()
-        .min(1, 'El teléfono es obligatorio')
-        .max(9, 'El teléfono no puede tener más de 9 números')
-        .regex(/^[0-9]+$/, 'El teléfono solo puede contener números'),
+        .min(1, 'Obligatorio')
+        .max(9, 'Max 9 dígitos')
+        .regex(/^[0-9]+$/, 'Solo números'),
     password: z
         .string()
         .min(8, 'Mínimo 8 carácteres')
