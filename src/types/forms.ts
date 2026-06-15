@@ -14,7 +14,6 @@ export interface ResetPasswordValues {
 }
 
 export interface RegisterValues {
-    dni: string;
     name: string;
     lastName: string;
     username: string;

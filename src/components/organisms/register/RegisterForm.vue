@@ -18,7 +18,6 @@ defineProps<{
 const resolver = zodResolver(registerSchema);
 
 const formValues = reactive<RegisterValues>({
-    dni : '',
     name: '',
     lastName: '',
     username: '',
@@ -69,13 +68,7 @@ const onFormSubmit = (e: FormSubmitEvent) => {
                 />
             </div>
 
-            <div class="ui:grid ui:grid-cols-2 ui:gap-2">
-                <BaseInput
-                v-model="formValues.dni"
-                name="dni" 
-                label="DNI"
-                :error="$form.dni?.error?.message" 
-                />
+            <div class="ui:grid ui:grid-cols-1 ui:gap-2">
                 <BaseInput
                 v-model="formValues.username"
                 name="username" 
@@ -84,23 +77,22 @@ const onFormSubmit = (e: FormSubmitEvent) => {
                 />
             </div>
 
-            <div class="ui:grid ui:grid-cols-1 ui:gap-2">
+            <div class="ui:grid ui:grid-cols-2 ui:gap-2">
                 <BaseInput
                 v-model="formValues.email"
                 name="email" 
                 label="Email" 
                 :error="$form.email?.error?.message"
                 />
-            </div>
-
-            <div class="ui:grid ui:grid-cols-2 ui:gap-2">
                 <BaseInput
                 v-model="formValues.phoneNumber"
                 name="phoneNumber" 
                 label="Teléfono"
                 :error="$form.phoneNumber?.error?.message"
                 />
-              
+            </div>
+
+            <div class="ui:grid ui:grid-cols-1 ui:gap-2">
                 <BasePassword
                 v-model="formValues.password"
                 name="password" 

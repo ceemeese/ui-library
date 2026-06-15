@@ -1,6 +1,5 @@
 import { z } from 'zod';
 export declare const registerSchema: z.ZodObject<{
-    dni: z.ZodString;
     name: z.ZodString;
     lastName: z.ZodString;
     username: z.ZodString;

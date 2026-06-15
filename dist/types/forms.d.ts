@@ -11,7 +11,6 @@ export interface ResetPasswordValues {
     confirmPassword: string;
 }
 export interface RegisterValues {
-    dni: string;
     name: string;
     lastName: string;
     username: string;
