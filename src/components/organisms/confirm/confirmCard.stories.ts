@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import ConfirmEmailCard from './ConfirmEmailCard.vue';
+import ConfirmCard from './ConfirmCard.vue
 
-const meta: Meta<typeof ConfirmEmailCard> = {
+const meta: Meta<typeof ConfirmCard> = {
   title: 'Organisms/ConfirmEmailCard',
-  component: ConfirmEmailCard,
+  component: ConfirmCard,
   tags: ['autodocs'],
   decorators: [() => ({ template: '<div style="max-width: 450px; margin: 2rem auto;"><story/></div>' })],
-} satisfies Meta<typeof ConfirmEmailCard>;
+} satisfies Meta<typeof ConfirmCard>;
 
 export default meta;
-type Story = StoryObj<typeof ConfirmEmailCard>;
+type Story = StoryObj<typeof ConfirmCard>;
 
 export const Loading: Story = {
   args: {
@@ -26,12 +26,12 @@ export const Success: Story = {
     iconButtonSuccess: 'pi pi-sign-in',
   },
   render: (args) => ({
-    components: { ConfirmEmailCard },
+    components: { ConfirmCard },
     setup() {
       const handleGoTo = () => alert('Navegar al login');
       return { args, handleGoTo };
     },
-    template: '<ConfirmEmailCard v-bind="args" @go-to="handleGoTo" />',
+    template: '<ConfirmCard v-bind="args" @go-to="handleGoTo" />',
   }),
 };
 
@@ -43,11 +43,11 @@ export const Error: Story = {
     backLabel: 'Volver al inicio de sesión',
   },
   render: (args) => ({
-    components: { ConfirmEmailCard },
+    components: { ConfirmCard },
     setup() {
       const handleBack = () => alert('Navegar atrás');
       return { args, handleBack };
     },
-    template: '<ConfirmEmailCard v-bind="args" @back="handleBack" />',
+    template: '<ConfirmCard v-bind="args" @back="handleBack" />',
   }),
 };

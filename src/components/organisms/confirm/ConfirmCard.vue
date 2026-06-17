@@ -3,7 +3,7 @@ import BaseButton from '../../atoms/BaseButton.vue';
 import BaseCard from '../../atoms/BaseCard.vue';
 import ProgressSpinner from 'primevue/progressspinner';
 
-interface ConfirmEmailCardProps {
+interface ConfirmCardProps {
     status?: 'loading' | 'success' | 'error';
     titleMessage?: string;
     messageConfirmation?: string;
@@ -14,7 +14,7 @@ interface ConfirmEmailCardProps {
     errorMessage?: string;
 }
 
-defineProps<ConfirmEmailCardProps>();
+defineProps<ConfirmCardProps>();
 
 const emit = defineEmits<{
     (e: 'back'): void;
