@@ -4380,7 +4380,7 @@ const Ca = { class: "ui:flex ui:flex-wrap ui:items-center ui:justify-between ui:
           }),
           i[2] || (i[2] = c("p", { class: "ui:text-gray-500" }, "Confirmando...", -1))
         ])) : e.status === "success" ? (f(), b("div", qu, [
-          i[3] || (i[3] = c("i", { class: "pi pi-check-circle ui:text-5xl ui:text-green-500" }, null, -1)),
+          i[3] || (i[3] = c("i", { class: "pi pi-check-circle ui:text-5xl ui:text-green-400" }, null, -1)),
           c("div", null, [
             c("h1", Yu, w(e.titleMessage), 1),
             c("p", Xu, w(e.messageConfirmation), 1)
