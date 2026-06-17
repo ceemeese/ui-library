@@ -15,6 +15,7 @@
     --ui-color-orange-700: oklch(55.3% 0.195 38.402);
     --ui-color-lime-500: oklch(76.8% 0.233 130.85);
     --ui-color-green-100: oklch(96.2% 0.044 156.743);
+    --ui-color-green-400: oklch(79.2% 0.209 151.711);
     --ui-color-green-500: oklch(72.3% 0.219 149.579);
     --ui-color-green-700: oklch(52.7% 0.154 150.069);
     --ui-color-emerald-500: oklch(69.6% 0.17 162.48);
@@ -63,8 +64,6 @@
     --ui-text-2xl--line-height: calc(2 / 1.5);
     --ui-text-3xl: 1.875rem;
     --ui-text-3xl--line-height: calc(2.25 / 1.875);
-    --ui-text-4xl: 2.25rem;
-    --ui-text-4xl--line-height: calc(2.5 / 2.25);
     --ui-text-5xl: 3rem;
     --ui-text-5xl--line-height: 1;
     --ui-text-6xl: 3.75rem;
@@ -856,10 +855,6 @@
     font-size: var(--ui-text-3xl);
     line-height: var(--tw-leading, var(--ui-text-3xl--line-height));
   }
-  .ui\:text-4xl {
-    font-size: var(--ui-text-4xl);
-    line-height: var(--tw-leading, var(--ui-text-4xl--line-height));
-  }
   .ui\:text-5xl {
     font-size: var(--ui-text-5xl);
     line-height: var(--tw-leading, var(--ui-text-5xl--line-height));
@@ -983,6 +978,9 @@
   }
   .ui\:text-gray-900 {
     color: var(--ui-color-gray-900);
+  }
+  .ui\:text-green-400 {
+    color: var(--ui-color-green-400);
   }
   .ui\:text-green-500 {
     color: var(--ui-color-green-500);

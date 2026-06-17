@@ -71,6 +71,7 @@ const UILibrary: Plugin = {
     app.component('NavbarMobile', NavbarMobile);
     app.component('ForgotPasswordForm', ForgotPasswordForm);
     app.component('ConfirmCard', ConfirmCard);
+    app.component('ResetPasswordForm', ResetPasswordForm);
 
     console.log('UI Library: PrimeVue y componentes locales registrados');
   }
