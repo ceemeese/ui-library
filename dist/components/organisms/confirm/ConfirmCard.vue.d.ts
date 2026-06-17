@@ -1,4 +1,4 @@
-interface ConfirmEmailCardProps {
+interface ConfirmCardProps {
     status?: 'loading' | 'success' | 'error';
     titleMessage?: string;
     messageConfirmation?: string;
@@ -8,10 +8,10 @@ interface ConfirmEmailCardProps {
     errorTitle?: string;
     errorMessage?: string;
 }
-declare const _default: import('vue').DefineComponent<ConfirmEmailCardProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {} & {
+declare const _default: import('vue').DefineComponent<ConfirmCardProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {} & {
     back: () => any;
     goTo: () => any;
-}, string, import('vue').PublicProps, Readonly<ConfirmEmailCardProps> & Readonly<{
+}, string, import('vue').PublicProps, Readonly<ConfirmCardProps> & Readonly<{
     onBack?: (() => any) | undefined;
     onGoTo?: (() => any) | undefined;
 }>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, HTMLDivElement>;

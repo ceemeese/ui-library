@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import ConfirmCard from './ConfirmCard.vue
+import ConfirmCard from './ConfirmCard.vue';
 
 const meta: Meta<typeof ConfirmCard> = {
   title: 'Organisms/ConfirmEmailCard',

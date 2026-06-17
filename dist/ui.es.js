@@ -4275,7 +4275,7 @@ const Ca = { class: "ui:flex ui:flex-wrap ui:items-center ui:justify-between ui:
       });
     };
   }
-}), Ju = { class: "ui:mb-6" }, Wu = { class: "ui:text-xl ui:font-bold ui:text-gray-900 ui:text-center" }, Hu = { class: "ui:flex ui:flex-col ui:gap-1" }, zl = /* @__PURE__ */ O({
+}), Ju = { class: "ui:mb-6" }, Wu = { class: "ui:text-xl ui:font-bold ui:text-gray-900 ui:text-center" }, Hu = { class: "ui:flex ui:flex-col ui:gap-1" }, Zl = /* @__PURE__ */ O({
   __name: "ResetPasswordForm",
   props: {
     mode: {},
@@ -4345,8 +4345,8 @@ const Ca = { class: "ui:flex ui:flex-wrap ui:items-center ui:justify-between ui:
       _: 1
     })) : P("", !0);
   }
-}), Ku = { class: "ui:text-2xl ui:font-semibold ui:text-gray-900 ui:mb-2" }, Gu = { class: "ui:text-gray-500 ui:mb-6" }, qu = { class: "ui:text-2xl ui:font-semibold ui:text-gray-900 ui:mb-2" }, Yu = { class: "ui:text-gray-500 ui:mb-6" }, Zl = /* @__PURE__ */ O({
-  __name: "ConfirmEmailCard",
+}), Ku = { class: "ui:text-2xl ui:font-semibold ui:text-gray-900 ui:mb-2" }, Gu = { class: "ui:text-gray-500 ui:mb-6" }, qu = { class: "ui:text-2xl ui:font-semibold ui:text-gray-900 ui:mb-2" }, Yu = { class: "ui:text-gray-500 ui:mb-6" }, Xu = /* @__PURE__ */ O({
+  __name: "ConfirmCard",
   props: {
     status: {},
     titleMessage: {},
@@ -4399,29 +4399,29 @@ const Ca = { class: "ui:flex ui:flex-wrap ui:items-center ui:justify-between ui:
       _: 1
     }));
   }
-}), Xu = {
+}), Qu = {
   key: 0,
   class: "lg:hidden fixed inset-0 z-50"
-}, Qu = { class: "relative w-64 h-full bg-white shadow-xl" }, el = /* @__PURE__ */ O({
+}, el = { class: "relative w-64 h-full bg-white shadow-xl" }, tl = /* @__PURE__ */ O({
   __name: "NavbarMobile",
   props: {
     isOpen: { type: Boolean }
   },
   emits: ["close"],
   setup(e) {
-    return (t, n) => e.isOpen ? (f(), b("div", Xu, [
+    return (t, n) => e.isOpen ? (f(), b("div", Qu, [
       c("div", {
         class: "absolute inset-0 bg-black/50",
         onClick: n[0] || (n[0] = (o) => t.$emit("close"))
       }),
-      c("div", Qu, [
+      c("div", el, [
         I(t.$slots, "default")
       ])
     ])) : P("", !0);
   }
 }), Sl = {
   install(e) {
-    e.component("BaseInput", W), e.component("BaseButton", R), e.component("BasePassword", re), e.component("LoginForm", Sn), e.component("Header", na), e.component("HeaderM", aa), e.component("Footer", ya), e.component("Navbar", Oa), e.component("RegisterForm", Qs), e.component("BaseDataTable", Ra), e.component("BaseCard", te), e.component("BaseDialog", Ua), e.component("UserCardProfile", qa), e.component("BaseInfoField", tu), e.component("NavUserCard", su), e.component("ScheduleManager", lu), e.component("BasePill", Lu), e.component("EventCalendar", xu), e.component("BaseDatePicker", Fe), e.component("BaseDateSelector", Pu), e.component("BaseGroupedItem", Wt), e.component("GroupedList", Fu), e.component("NavbarMobile", el), e.component("ForgotPasswordForm", Mu), console.log("UI Library: PrimeVue y componentes locales registrados");
+    e.component("BaseInput", W), e.component("BaseButton", R), e.component("BasePassword", re), e.component("LoginForm", Sn), e.component("Header", na), e.component("HeaderM", aa), e.component("Footer", ya), e.component("Navbar", Oa), e.component("RegisterForm", Qs), e.component("BaseDataTable", Ra), e.component("BaseCard", te), e.component("BaseDialog", Ua), e.component("UserCardProfile", qa), e.component("BaseInfoField", tu), e.component("NavUserCard", su), e.component("ScheduleManager", lu), e.component("BasePill", Lu), e.component("EventCalendar", xu), e.component("BaseDatePicker", Fe), e.component("BaseDateSelector", Pu), e.component("BaseGroupedItem", Wt), e.component("GroupedList", Fu), e.component("NavbarMobile", tl), e.component("ForgotPasswordForm", Mu), e.component("ConfirmCard", Xu), console.log("UI Library: PrimeVue y componentes locales registrados");
   }
 };
 export {
@@ -4436,7 +4436,7 @@ export {
   W as BaseInput,
   re as BasePassword,
   Lu as BasePill,
-  Zl as ConfirmEmailCard,
+  Xu as ConfirmCard,
   xu as EventCalendar,
   ya as Footer,
   Mu as ForgotPasswordForm,
@@ -4446,9 +4446,9 @@ export {
   Sn as LoginForm,
   su as NavUserCard,
   Oa as Navbar,
-  el as NavbarMobile,
+  tl as NavbarMobile,
   Qs as RegisterForm,
-  zl as ResetPasswordForm,
+  Zl as ResetPasswordForm,
   lu as ScheduleManager,
   qa as UserCardProfile,
   Sl as default

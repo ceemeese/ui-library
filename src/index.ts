@@ -70,6 +70,7 @@ const UILibrary: Plugin = {
     app.component('GroupedList', GroupedList);
     app.component('NavbarMobile', NavbarMobile);
     app.component('ForgotPasswordForm', ForgotPasswordForm);
+    app.component('ConfirmCard', ConfirmCard);
 
     console.log('UI Library: PrimeVue y componentes locales registrados');
   }
