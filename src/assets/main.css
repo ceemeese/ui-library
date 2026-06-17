@@ -63,6 +63,10 @@
     --ui-text-2xl--line-height: calc(2 / 1.5);
     --ui-text-3xl: 1.875rem;
     --ui-text-3xl--line-height: calc(2.25 / 1.875);
+    --ui-text-4xl: 2.25rem;
+    --ui-text-4xl--line-height: calc(2.5 / 2.25);
+    --ui-text-5xl: 3rem;
+    --ui-text-5xl--line-height: 1;
     --ui-text-6xl: 3.75rem;
     --ui-text-6xl--line-height: 1;
     --ui-font-weight-medium: 500;
@@ -852,6 +856,14 @@
     font-size: var(--ui-text-3xl);
     line-height: var(--tw-leading, var(--ui-text-3xl--line-height));
   }
+  .ui\:text-4xl {
+    font-size: var(--ui-text-4xl);
+    line-height: var(--tw-leading, var(--ui-text-4xl--line-height));
+  }
+  .ui\:text-5xl {
+    font-size: var(--ui-text-5xl);
+    line-height: var(--tw-leading, var(--ui-text-5xl--line-height));
+  }
   .ui\:text-6xl {
     font-size: var(--ui-text-6xl);
     line-height: var(--tw-leading, var(--ui-text-6xl--line-height));
@@ -972,6 +984,9 @@
   .ui\:text-gray-900 {
     color: var(--ui-color-gray-900);
   }
+  .ui\:text-green-500 {
+    color: var(--ui-color-green-500);
+  }
   .ui\:text-green-700 {
     color: var(--ui-color-green-700);
   }
@@ -983,6 +998,9 @@
   }
   .ui\:text-purple-700 {
     color: var(--ui-color-purple-700);
+  }
+  .ui\:text-red-400 {
+    color: var(--ui-color-red-400);
   }
   .ui\:text-slate-200 {
     color: var(--ui-color-slate-200);

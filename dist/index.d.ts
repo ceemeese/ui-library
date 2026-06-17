@@ -23,11 +23,12 @@ import { default as GroupedList } from './components/organisms/groupedList/Group
 import { default as BasePill } from './components/atoms/BasePill.vue';
 import { default as ForgotPasswordForm } from './components/organisms/forgotPassword/ForgotPasswordForm.vue';
 import { default as ResetPasswordForm } from './components/organisms/resetPassword/ResetPasswordForm.vue';
+import { default as ConfirmEmailCard } from './components/organisms/confirm/ConfirmEmailCard.vue';
 import { SocialItem, NavItem, NavItemNavbar } from './types/navigation';
 import { LoginValues, RegisterValues, BaseInputProps, ForgotValues, ResetPasswordValues, BasePasswordProps } from './types/forms';
 import { ColumnConfig, ActionColumn } from './types/datatable';
 import { default as NavbarMobile } from './components/organisms/navbarMobile/NavbarMobile.vue';
-export { BaseInput, BaseButton, BasePassword, LoginForm, Header, HeaderM, Footer, Navbar, RegisterForm, BaseDataTable, BaseCard, BaseDialog, UserCardProfile, BaseInfoField, NavUserCard, ScheduleManager, EventCalendar, BaseDatePicker, BaseDateSelector, BaseGroupedItem, GroupedList, BasePill, NavbarMobile, ForgotPasswordForm, ResetPasswordForm };
+export { BaseInput, BaseButton, BasePassword, LoginForm, Header, HeaderM, Footer, Navbar, RegisterForm, BaseDataTable, BaseCard, BaseDialog, UserCardProfile, BaseInfoField, NavUserCard, ScheduleManager, EventCalendar, BaseDatePicker, BaseDateSelector, BaseGroupedItem, GroupedList, BasePill, NavbarMobile, ForgotPasswordForm, ResetPasswordForm, ConfirmEmailCard };
 export type { NavItem, SocialItem, NavItemNavbar, LoginValues, RegisterValues, ColumnConfig, ActionColumn, BaseInputProps, InfoFieldProps, ScheduleProps, CalendarEvent, CalendarResource, ForgotValues, ResetPasswordValues, BasePasswordProps };
 declare const UILibrary: Plugin;
 export default UILibrary;
