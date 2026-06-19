@@ -3624,7 +3624,7 @@ const Ca = { class: "ui:flex ui:flex-wrap ui:items-center ui:justify-between ui:
         label: a.labelButton,
         icon: a.icon,
         onClick: m[0] || (m[0] = (v) => o.value = !0),
-        class: "ui:!p-2 ui:!bg-black",
+        class: "ui:!p-2 ui:!bg-black ui:!border-none",
         size: "small",
         rounded: ""
       }, null, 8, ["label", "icon"])) : C("", !0),
@@ -3649,7 +3649,7 @@ const Ca = { class: "ui:flex ui:flex-wrap ui:items-center ui:justify-between ui:
                 label: "Guardar",
                 type: "submit",
                 form: "base-dialog-form",
-                class: "ui:!bg-black ui:border-none",
+                class: "ui:!bg-black ui:!border-none",
                 loading: e.loading
               }, null, 8, ["loading"])
             ])
@@ -3736,13 +3736,12 @@ const Ca = { class: "ui:flex ui:flex-wrap ui:items-center ui:justify-between ui:
           c("div", Ga, [
             I(s.$slots, "actions", {}, () => [
               h(R, {
-                variant: "outlined",
                 label: "Editar",
                 size: "small",
                 icon: "pi pi-user-edit",
                 rounded: "",
                 onClick: i,
-                class: "ui:!px-3"
+                class: "ui:!bg-black !border-black"
               })
             ])
           ])

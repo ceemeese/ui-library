@@ -102,7 +102,7 @@ defineExpose({open, close});
             :label=props.labelButton
             :icon="props.icon"
             @click="visible = true"
-            class="ui:!p-2 ui:!bg-black" 
+            class="ui:!p-2 ui:!bg-black ui:!border-none" 
             size="small"
             rounded />
         <Dialog
@@ -139,7 +139,7 @@ defineExpose({open, close});
                 <slot name="footer" :data="localData">
                     <div class="ui:flex ui:justify-end ui:gap-2">
                         <BaseButton label="Cancelar" severity="secondary" @click="close" :loading="loading" />
-                        <BaseButton label="Guardar" type="submit" form="base-dialog-form" class="ui:!bg-black ui:border-none" :loading="loading" />
+                        <BaseButton label="Guardar" type="submit" form="base-dialog-form" class="ui:!bg-black ui:!border-none" :loading="loading" />
                     </div>
                 </slot>
             </template>
