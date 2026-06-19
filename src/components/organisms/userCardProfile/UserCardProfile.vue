@@ -57,13 +57,12 @@ const onClickEdit = () => {
             <div class="ui:relative ui:z-[100]">
                 <slot name="actions">
                     <BaseButton
-                        variant="outlined"
                         label="Editar"
                         size="small"
                         icon="pi pi-user-edit"
                         rounded
                         @click="onClickEdit"
-                        class="ui:!px-3"
+                        class="ui:!bg-black !border-black"
                     />
                 </slot>
             </div>
