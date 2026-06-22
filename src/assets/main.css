@@ -766,12 +766,6 @@
   .ui\:p-10 {
     padding: calc(var(--ui-spacing) * 10);
   }
-  .ui\:\!px-2 {
-    padding-inline: calc(var(--ui-spacing) * 2) !important;
-  }
-  .ui\:\!px-3 {
-    padding-inline: calc(var(--ui-spacing) * 3) !important;
-  }
   .ui\:\!px-4 {
     padding-inline: calc(var(--ui-spacing) * 4) !important;
   }
